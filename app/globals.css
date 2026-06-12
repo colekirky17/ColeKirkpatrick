@@ -741,9 +741,9 @@ a {
     0 24px 65px rgba(0, 0, 0, 0.24),
     inset 0 0 40px rgba(14, 165, 233, 0.035);
   transition:
-    border-color 280ms ease,
-    box-shadow 280ms ease,
-    transform 280ms ease;
+    border-color 420ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 420ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 420ms cubic-bezier(0.22, 1, 0.36, 1);
   color: inherit;
   font: inherit;
   text-align: left;
@@ -751,18 +751,65 @@ a {
   isolation: isolate;
 }
 
+.case-card::before,
+.case-card::after {
+  position: absolute;
+  pointer-events: none;
+  content: "";
+}
+
+.case-card::before {
+  z-index: 0;
+  inset: 0;
+  background:
+    radial-gradient(circle at 18% 12%, rgba(34, 211, 238, 0.2), transparent 34%),
+    radial-gradient(circle at 82% 72%, rgba(37, 99, 235, 0.16), transparent 42%),
+    linear-gradient(135deg, rgba(8, 52, 82, 0.88), rgba(5, 19, 39, 0.94) 58%, rgba(8, 35, 58, 0.9));
+  opacity: 0;
+  transition: opacity 420ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.case-card::after {
+  z-index: 4;
+  top: -20%;
+  bottom: -20%;
+  left: -48%;
+  width: 34%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(103, 232, 249, 0.04) 28%,
+    rgba(207, 250, 254, 0.28) 50%,
+    rgba(56, 189, 248, 0.08) 72%,
+    transparent
+  );
+  filter: blur(2px);
+  opacity: 0;
+  transform: skewX(-14deg);
+}
+
 .case-card:focus-visible {
   outline: 2px solid rgba(103, 232, 249, 0.9);
   outline-offset: 4px;
 }
 
-.case-card:hover {
-  border-color: rgba(103, 232, 249, 0.72);
+.case-card:is(:hover, :focus-visible) {
+  border-color: rgba(165, 243, 252, 0.92);
   box-shadow:
-    0 28px 75px rgba(0, 0, 0, 0.3),
-    0 0 34px rgba(14, 165, 233, 0.09),
-    inset 0 0 48px rgba(14, 165, 233, 0.065);
-  transform: translateY(-4px);
+    0 34px 82px rgba(0, 0, 0, 0.42),
+    0 0 18px rgba(34, 211, 238, 0.22),
+    0 0 54px rgba(14, 165, 233, 0.16),
+    inset 0 0 54px rgba(34, 211, 238, 0.11),
+    inset 0 1px 0 rgba(207, 250, 254, 0.2);
+  transform: translateY(-6px) scale(1.008);
+}
+
+.case-card:is(:hover, :focus-visible)::before {
+  opacity: 1;
+}
+
+.case-card:is(:hover, :focus-visible)::after {
+  animation: case-activation-sweep 1.15s cubic-bezier(0.2, 0.75, 0.25, 1) both;
 }
 
 .case-data-field,
@@ -793,22 +840,38 @@ a {
   background-repeat: repeat, repeat, no-repeat;
   mask-image: linear-gradient(135deg, black, rgba(0, 0, 0, 0.35) 55%, transparent);
   opacity: 0.52;
+  transition:
+    opacity 400ms ease,
+    filter 400ms ease;
 }
 
 .case-data-sweep {
   z-index: 2;
-  width: 32%;
+  width: 36%;
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(103, 232, 249, 0.035),
-    rgba(103, 232, 249, 0.1),
+    rgba(103, 232, 249, 0.05),
+    rgba(103, 232, 249, 0.14),
     transparent
   );
   filter: blur(1px);
-  opacity: 0.7;
+  opacity: 0.76;
   transform: skewX(-10deg);
   animation: case-data-sweep 9s ease-in-out infinite;
+  transition:
+    opacity 400ms ease,
+    filter 400ms ease;
+}
+
+.case-card:is(:hover, :focus-visible) .case-data-field {
+  filter: brightness(1.45);
+  opacity: 0.84;
+}
+
+.case-card:is(:hover, :focus-visible) .case-data-sweep {
+  filter: blur(0.5px) brightness(1.55);
+  opacity: 1;
 }
 
 .case-card:nth-child(2) .case-data-sweep {
@@ -831,11 +894,16 @@ a {
   border-color: rgba(103, 232, 249, 0.56);
   filter: drop-shadow(0 0 4px rgba(34, 211, 238, 0.38));
   pointer-events: none;
-  transition: border-color 280ms ease;
+  transition:
+    border-color 400ms ease,
+    filter 400ms ease,
+    transform 400ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.case-card:hover .case-corner {
-  border-color: rgba(207, 250, 254, 0.9);
+.case-card:is(:hover, :focus-visible) .case-corner {
+  border-color: rgba(207, 250, 254, 1);
+  filter: drop-shadow(0 0 7px rgba(103, 232, 249, 0.9));
+  transform: scale(1.08);
 }
 
 .case-corner-tl {
@@ -873,6 +941,14 @@ a {
   background: linear-gradient(90deg, transparent, #67e8f9, transparent);
   box-shadow: 0 0 8px rgba(34, 211, 238, 0.65);
   pointer-events: none;
+  transition:
+    filter 400ms ease,
+    opacity 400ms ease;
+}
+
+.case-card:is(:hover, :focus-visible) .case-rail {
+  filter: brightness(1.75);
+  opacity: 1;
 }
 
 .case-rail-top {
@@ -906,10 +982,10 @@ a {
     transform 280ms ease;
 }
 
-.case-card:hover .case-number {
-  color: rgba(125, 211, 252, 0.065);
-  text-shadow: 0 0 24px rgba(34, 211, 238, 0.06);
-  transform: translateX(-3px);
+.case-card:is(:hover, :focus-visible) .case-number {
+  color: rgba(165, 243, 252, 0.13);
+  text-shadow: 0 0 30px rgba(34, 211, 238, 0.14);
+  transform: translateX(-4px) scale(1.025);
 }
 
 .case-category {
@@ -967,14 +1043,30 @@ a {
     transform 280ms ease;
 }
 
-.case-card:hover .case-arrow {
-  border-color: rgba(103, 232, 249, 0.72);
-  background: rgba(8, 47, 73, 0.62);
-  color: #cffafe;
+.case-card:is(:hover, :focus-visible) .case-arrow {
+  border-color: rgba(165, 243, 252, 0.92);
+  background: rgba(6, 78, 112, 0.78);
+  color: #ecfeff;
   box-shadow:
-    0 0 24px rgba(34, 211, 238, 0.18),
-    inset 0 0 15px rgba(34, 211, 238, 0.08);
-  transform: translateY(-2px);
+    0 0 28px rgba(34, 211, 238, 0.34),
+    inset 0 0 18px rgba(103, 232, 249, 0.14);
+  transform: translateY(-2px) scale(1.04);
+}
+
+.case-title,
+.case-description {
+  transition:
+    color 360ms ease,
+    text-shadow 360ms ease;
+}
+
+.case-card:is(:hover, :focus-visible) .case-title {
+  color: #f8fdff;
+  text-shadow: 0 0 18px rgba(125, 211, 252, 0.14);
+}
+
+.case-card:is(:hover, :focus-visible) .case-description {
+  color: #bacbe0;
 }
 
 .case-tag {
@@ -993,10 +1085,13 @@ a {
     color 240ms ease;
 }
 
-.case-card:hover .case-tag {
-  border-color: rgba(103, 232, 249, 0.34);
-  background: rgba(8, 47, 73, 0.28);
-  color: rgba(207, 250, 254, 0.86);
+.case-card:is(:hover, :focus-visible) .case-tag {
+  border-color: rgba(103, 232, 249, 0.52);
+  background: rgba(8, 65, 92, 0.48);
+  color: rgba(224, 251, 255, 0.94);
+  box-shadow:
+    0 0 12px rgba(34, 211, 238, 0.08),
+    inset 0 0 10px rgba(34, 211, 238, 0.05);
 }
 
 .case-link {
@@ -1023,8 +1118,25 @@ a {
   transition: transform 280ms ease;
 }
 
-.case-card:hover .case-link::after {
+.case-card:is(:hover, :focus-visible) .case-link::after {
   transform: scaleX(1);
+}
+
+@keyframes case-activation-sweep {
+  0% {
+    left: -48%;
+    opacity: 0;
+  }
+  18% {
+    opacity: 0.8;
+  }
+  72% {
+    opacity: 0.55;
+  }
+  100% {
+    left: 120%;
+    opacity: 0;
+  }
 }
 
 @keyframes case-data-sweep {
@@ -1552,19 +1664,69 @@ a {
 .case-modal-skills > div {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.55rem;
-  margin-top: 1rem;
+  gap: 0.65rem;
+  margin-top: 1.15rem;
 }
 
 .case-modal-skills span {
-  border: 1px solid rgba(103, 232, 249, 0.14);
-  background: rgba(8, 47, 73, 0.16);
-  padding: 0.48rem 0.7rem;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(165, 243, 252, 0.72);
+  background:
+    linear-gradient(135deg, rgba(165, 243, 252, 0.94), rgba(56, 189, 248, 0.86)),
+    #67e8f9;
+  padding: 0.62rem 0.85rem;
   font-family: var(--font-mono-stack);
-  font-size: 0.5rem;
-  letter-spacing: 0.08em;
+  font-size: 0.56rem;
+  font-weight: 700;
+  letter-spacing: 0.075em;
   text-transform: uppercase;
-  color: rgba(186, 230, 253, 0.65);
+  color: #03111f;
+  box-shadow:
+    0 0 0 1px rgba(34, 211, 238, 0.08),
+    0 0 18px rgba(34, 211, 238, 0.12),
+    inset 0 1px rgba(255, 255, 255, 0.38);
+  text-shadow: 0 1px rgba(255, 255, 255, 0.2);
+  transition:
+    transform 220ms ease,
+    box-shadow 220ms ease,
+    filter 220ms ease;
+}
+
+.case-modal-skills span::after {
+  position: absolute;
+  top: -55%;
+  bottom: -55%;
+  left: -42%;
+  width: 24%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.82),
+    transparent
+  );
+  content: "";
+  opacity: 0;
+  pointer-events: none;
+  transform: skewX(-18deg);
+  animation: case-skill-scan 7s ease-in-out infinite;
+}
+
+.case-modal-skills span:nth-child(3n + 2)::after {
+  animation-delay: 1.4s;
+}
+
+.case-modal-skills span:nth-child(3n)::after {
+  animation-delay: 2.8s;
+}
+
+.case-modal-skills span:hover {
+  filter: brightness(1.08);
+  transform: translateY(-1px);
+  box-shadow:
+    0 0 0 1px rgba(165, 243, 252, 0.28),
+    0 0 24px rgba(34, 211, 238, 0.28),
+    inset 0 1px rgba(255, 255, 255, 0.48);
 }
 
 .case-modal-empty {
@@ -1648,6 +1810,25 @@ a {
   }
   to {
     transform: translateY(650%);
+  }
+}
+
+@keyframes case-skill-scan {
+  0%,
+  58% {
+    left: -42%;
+    opacity: 0;
+  }
+  64% {
+    opacity: 0.9;
+  }
+  78% {
+    left: 122%;
+    opacity: 0;
+  }
+  100% {
+    left: 122%;
+    opacity: 0;
   }
 }
 
@@ -2638,8 +2819,13 @@ a {
     transform: none;
   }
 
-  .case-card:hover {
+  .case-card:is(:hover, :focus-visible) {
     transform: none;
+  }
+
+  .case-card:is(:hover, :focus-visible)::after {
+    animation: none;
+    opacity: 0;
   }
 }
 

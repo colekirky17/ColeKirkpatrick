@@ -451,10 +451,10 @@ export function CaseStudyModals() {
                   <ArrowIcon className="size-4 -rotate-45 transition-transform duration-300 group-hover:rotate-0" />
                 </span>
               </span>
-              <span className="mt-11 block text-2xl font-semibold tracking-[-0.035em] text-white sm:text-[1.7rem]">
+              <span className="case-title mt-11 block text-2xl font-semibold tracking-[-0.035em] text-white sm:text-[1.7rem]">
                 {study.title}
               </span>
-              <span className="mt-3 block max-w-md text-sm leading-6 text-slate-400">
+              <span className="case-description mt-3 block max-w-md text-sm leading-6 text-slate-400">
                 {study.description}
               </span>
               <span className="mt-7 flex flex-wrap gap-2">

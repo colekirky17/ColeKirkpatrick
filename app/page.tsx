@@ -71,31 +71,55 @@ const selectedWork: {
 const experience = [
   {
     company: "CourseCareers",
-    role: "Operations & Program Leadership",
+    location: "Atlanta",
+    role: "Program Manager",
+    dates: "February 2023 - March 2026",
     period: "Most Recent",
-    description:
-      "Led cross-functional programs, operating systems, and teams through a period of meaningful scale.",
+    highlights: [
+      "Conducted market research to identify and oversee the creation and optimization of 20 online courses.",
+      "Led a team of 2 employees, 20 high-level contracted instructors, and over 50 third-party tutors.",
+      "Led ideation and cross-functional execution of student-facing product features.",
+      "Analyzed internal data to improve course offerings and student outcomes while increasing company revenue by roughly 10%.",
+    ],
   },
   {
     company: "JL Sponsorships",
-    role: "Partnerships & Operations",
+    location: "Las Vegas",
+    role: "COO",
+    dates: "August 2022 - December 2022",
     period: "Previous",
-    description:
-      "Supported partnership strategy and the operational work needed to deliver strong client outcomes.",
+    highlights: [
+      "Managed daily operations including market research, creator and business outreach, contract negotiation, and content creation.",
+      "Generated over $60,000 in sponsorships and increased revenue by roughly 20%.",
+      "Designed the company website, marketing assets, SOPs, and contract templates, contributing to a 50% increase in creator partnerships.",
+      "Successfully negotiated and closed 70% of partnership proposals offered to our creators.",
+    ],
   },
   {
     company: "Hungry Bull",
-    role: "Founder / Operator",
+    location: "Las Vegas",
+    role: "Co-Founder / COO",
+    dates: "December 2020 - August 2022",
     period: "Venture",
-    description:
-      "Built across strategy, product, brand, and execution to move the business from concept toward launch.",
+    highlights: [
+      "Co-founded and operated the Hungry Bull app with influencers Graham Stephan and Financial Education Jeremy.",
+      "Grew the mobile app to over 100,000 downloads.",
+      "Wrote a daily newsletter serving more than 5,000 readers.",
+      "Managed a team of 5 employees and contractors across daily operations, marketing, and software development.",
+    ],
   },
   {
     company: "Financial Fortress",
-    role: "Growth & Operations",
+    location: "Las Vegas",
+    role: "Project Manager",
+    dates: "March 2020 - December 2020",
     period: "Earlier",
-    description:
-      "Helped create the process and momentum behind a growing financial education business.",
+    highlights: [
+      "Managed a community of over 2,000 investors by providing support, creating value, and nurturing a healthy community.",
+      "Assisted in creating and managing a coaching program that generated $5,000,000 in sales.",
+      "Managed a team of 3 employees and 6 high-level coaches.",
+      "Created a personal finance course and company SOPs, and built a reporting system to track and optimize business operations.",
+    ],
   },
 ];
 
@@ -383,13 +407,13 @@ export default function Home() {
             description="A career shaped by operating inside growing teams, building from zero, and owning the outcome."
           />
           <div className="relative">
-            <div className="absolute bottom-4 left-[6px] top-4 w-px bg-gradient-to-b from-cyan-300/50 via-blue-400/20 to-transparent md:left-[200px]" />
+            <div className="absolute bottom-4 left-[6px] top-4 w-px bg-gradient-to-b from-cyan-300/50 via-blue-400/20 to-transparent md:left-[250px]" />
             {experience.map((item, index) => (
               <article
-                className="relative grid gap-2 py-6 pl-9 first:pt-2 last:pb-2 md:grid-cols-[170px_1fr] md:gap-16 md:pl-0"
+                className="relative grid gap-4 py-9 pl-9 first:pt-2 last:pb-2 md:grid-cols-[215px_1fr] md:gap-20 md:pl-0"
                 key={item.company}
               >
-                <span className="absolute left-0 top-[31px] z-10 flex size-[13px] items-center justify-center rounded-full border border-cyan-300/50 bg-[#060b14] md:left-[194px]">
+                <span className="absolute left-0 top-[43px] z-10 flex size-[13px] items-center justify-center rounded-full border border-cyan-300/50 bg-[#060b14] first:top-[7px] md:left-[244px] md:first:top-[7px]">
                   <span className="size-[5px] rounded-full bg-cyan-300 shadow-[0_0_8px_#22d3ee]" />
                 </span>
                 <div>
@@ -399,12 +423,23 @@ export default function Home() {
                   <h3 className="mt-2 text-lg font-semibold tracking-tight text-white">
                     {item.company}
                   </h3>
+                  <p className="mt-1 text-xs text-slate-500">{item.location}</p>
                 </div>
                 <div className="md:pt-0.5">
                   <p className="text-sm font-medium text-cyan-200">{item.role}</p>
-                  <p className="mt-2 max-w-2xl text-sm leading-6 text-slate-400">
-                    {item.description}
+                  <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.1em] text-slate-600">
+                    {item.dates}
                   </p>
+                  <ul className="mt-4 grid max-w-4xl gap-2.5">
+                    {item.highlights.map((highlight) => (
+                      <li
+                        className="relative pl-5 text-sm leading-6 text-slate-400 before:absolute before:left-0 before:top-[0.65rem] before:size-1.5 before:rotate-45 before:border before:border-cyan-300/70 before:bg-cyan-300/10 before:shadow-[0_0_7px_rgba(34,211,238,0.35)]"
+                        key={highlight}
+                      >
+                        {highlight}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </article>
             ))}
