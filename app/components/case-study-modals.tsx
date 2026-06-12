@@ -24,6 +24,7 @@ type CaseStudy = {
     value: string;
     label: string;
   }[];
+  outcomeTitle?: string;
   outcomeDetails?: string[];
   skills?: string[];
 };
@@ -84,6 +85,7 @@ const caseStudies: CaseStudy[] = [
       { value: "50+", label: "Tutors and coaches supported" },
       { value: "Millions", label: "Education product revenue supported" },
     ],
+    outcomeTitle: "Stronger programs, economics, and execution.",
     outcomeDetails: [
       "Net income per course sale improved through contract and compensation model improvements.",
       "Graduation and progression rates improved through course quality, coaching, and student experience initiatives.",
@@ -106,25 +108,236 @@ const caseStudies: CaseStudy[] = [
     title: "Hungry Bull",
     category: "Consumer Startup",
     description:
-      "Taking a consumer brand from an early idea to an organized, launch-ready business.",
-    tags: ["Startup", "Brand", "Execution"],
+      "Building a mobile-first stock market media product for a younger generation of investors.",
+    tags: ["Startup", "Fintech", "Product"],
     number: "02",
+    snapshot: {
+      role: "Co-Founder / COO",
+      team: "Creators · writers · designers · developers · contractors",
+      scope: "Product, content, marketing, and day-to-day operations",
+    },
+    sections: [
+      {
+        label: "Context",
+        title: "Turning creator authority into a direct-to-audience product.",
+        body:
+          "While working with Financial Education Jeremy, a prominent finance YouTuber with a large investing audience, I saw an opportunity to build a stock-market-focused media product inspired by the daily newsletter model but designed more directly for a younger investing audience. Instead of competing for attention through email alone, the idea was to create a mobile app and daily market newsletter that could meet users where they already spent time.",
+      },
+      {
+        label: "The Opportunity",
+        title: "A mobile-first relationship with younger investors.",
+        bullets: [
+          "Jeremy had a large audience and strong brand authority in the investing space.",
+          "There was demand for simple, digestible stock market content.",
+          "Most finance newsletters competed inside crowded email inboxes.",
+          "A mobile app could create a more direct relationship with younger investors.",
+          "The business needed a brand, product concept, content system, and operating structure built from scratch.",
+        ],
+      },
+      {
+        label: "My Role",
+        title: "Co-founder and operator responsible for making the idea real.",
+        body:
+          "As Co-Founder and COO, I turned the original concept into a real product and operating business. I handled day-to-day operations, product coordination, content systems, marketing execution, team management, and leadership updates.",
+      },
+      {
+        label: "What I Did",
+        title: "Built the product, brand, team, and operating rhythm from zero.",
+        bullets: [
+          "Proposed the original concept and helped pitch the opportunity to leadership.",
+          "Helped bring Graham Stephan, Erika Kullberg, and Matthew Huo into the project.",
+          "Named the company and helped create the initial brand, logo direction, color scheme, and early app concepts.",
+          "Worked directly with the software development team to guide product direction and app execution.",
+          "Wrote the daily stock market newsletter and managed another writer.",
+          "Managed designers, virtual assistants, and contractors across app design, marketing, research, image creation, and video.",
+          "Ran social media marketing campaigns and coordinated day-to-day execution across content, product, and marketing.",
+          "Reported updates to leadership, discussed strategy, and helped turn strategic decisions into execution.",
+        ],
+      },
+    ],
+    outcomes: [
+      { value: "100K+", label: "Mobile app downloads" },
+      { value: "~8K", label: "Daily newsletter readers at peak" },
+      { value: "0 → 1", label: "Consumer fintech product built" },
+    ],
+    outcomeTitle: "A real audience, product, and operating business.",
+    outcomeDetails: [
+      "Built Hungry Bull from zero into a real consumer fintech and media product.",
+      "Created the brand, content system, operating rhythm, and product foundation from the ground up.",
+      "Managed cross-functional execution across creators, writers, designers, developers, assistants, and leadership.",
+    ],
+    skills: [
+      "Startup Operations",
+      "Product Management",
+      "Project Management",
+      "Business Strategy",
+      "Content Strategy",
+      "Newsletter Writing",
+      "Team Management",
+      "Creator Economy",
+      "Fintech / Investing",
+      "Cross-Functional Execution",
+      "App Development Coordination",
+    ],
   },
   {
     title: "iCard Collection",
     category: "Digital Product",
     description:
-      "Designing a modern product concept that makes collecting feel intuitive, social, and alive.",
-    tags: ["Product", "UX", "Strategy"],
+      "Building a centralized platform for organizing, sharing, and trading hockey cards.",
+    tags: ["Product", "Community", "AI Build"],
     number: "03",
+    snapshot: {
+      role: "Founder",
+      team: "Founder-led · community and creator partners",
+      scope: "Product, brand, community, marketing, and development",
+    },
+    sections: [
+      {
+        label: "Context",
+        title: "Reimagining a lifelong hobby as a modern digital product.",
+        body:
+          "I grew up collecting hockey cards and recently returned to the hobby after watching hockey card content on YouTube and seeing how much the market had changed. Hockey cards had evolved from being mostly a collectible hobby into something closer to an asset class, but the collector experience remained fragmented across Facebook groups, Instagram, Reddit, eBay, MyCardPost, and other disconnected platforms.",
+      },
+      {
+        label: "The Opportunity",
+        title: "Bring community, organization, and trading into one platform.",
+        bullets: [
+          "Hockey is one of the smaller markets within the major sports card world, so it often receives less attention from larger hobby platforms.",
+          "Collectors had no centralized place built specifically around the hockey card community.",
+          "Collections were getting larger and more valuable but remained difficult to organize, display, share, and track.",
+          "Social media trading already existed, but the process was messy, repetitive, and hard to verify.",
+          "There was an opportunity to combine the community side of collecting with better tools for organization, trading, reputation, and card value tracking.",
+        ],
+      },
+      {
+        label: "My Role",
+        title: "Founder-led execution from rough idea to live product.",
+        body:
+          "I built the platform from the ground up across product strategy, branding, website structure, community development, marketing, user feedback, and AI-assisted development. Along the way, I taught myself how to use AI coding tools and worked through the process of turning an early concept into a functioning product.",
+      },
+      {
+        label: "What I Did",
+        title: "Built the product experience and community foundation.",
+        bullets: [
+          "Created the brand, positioning, and product direction for a hockey card community platform.",
+          "Built a system for users to upload, organize, and share their hockey card collections.",
+          "Created trade-listing functionality so users can display available cards with photos, pricing, and card details in one place.",
+          "Built tools that let collectors share cards without repeatedly sending the same photos and information back and forth.",
+          "Started building card value tracking features inspired by stock market charts to show whether player and card values are rising or falling.",
+          "Created community features including chat rooms, live events, giveaways, and box break concepts.",
+          "Ran organic social media marketing campaigns and created content around hockey card collecting.",
+          "Worked with hockey card YouTubers and influencers to grow awareness and build credibility.",
+          "Used AI-assisted coding and rapid product iteration to build and improve the platform quickly.",
+        ],
+      },
+    ],
+    outcomes: [
+      { value: "~200", label: "Users in the first few months" },
+      { value: "1,000+", label: "Cards uploaded to the platform" },
+      { value: "Live", label: "Community product launched" },
+    ],
+    outcomeTitle: "A functioning platform with an active early community.",
+    outcomeDetails: [
+      "Collectors are using the platform to connect, share collections, and coordinate trades.",
+      "Early power users have provided strong positive feedback on the product and direction.",
+      "Created a more organized, community-driven alternative to scattered social media trading.",
+    ],
+    skills: [
+      "Founder-Led Execution",
+      "Product Strategy",
+      "AI-Assisted Development",
+      "Community Building",
+      "Marketplace Thinking",
+      "Sports Collectibles",
+      "Branding",
+      "Product Management",
+      "User Feedback",
+      "Social Media Marketing",
+      "Influencer Outreach",
+      "Startup Operations",
+      "Vibe Coding",
+      "Customer Discovery",
+    ],
   },
   {
     title: "Signature Swings",
-    category: "Creative Project",
+    category: "Ecommerce & B2C",
     description:
-      "Building a distinct content concept at the intersection of sports, storytelling, and design.",
-    tags: ["Creative", "Media", "Build"],
+      "Creating a clearer direct-to-consumer experience for customized golf products.",
+    tags: ["Ecommerce", "B2C", "AI Build"],
     number: "04",
+    snapshot: {
+      role: "B2C Strategy & Ecommerce Lead",
+      team: "Founder partnership · AI-assisted development",
+      scope: "Website, product structure, customization, and sales strategy",
+    },
+    sections: [
+      {
+        label: "Context",
+        title: "Extending a strong B2B business into direct-to-consumer growth.",
+        body:
+          "Signature Swings is a custom golf apparel and accessories company with a strong B2B business. The company wanted to expand into B2C to grow the brand, sell directly to consumers, and create a stronger ecommerce experience. The founders had deep golf and custom-product expertise but limited B2C ecommerce and direct-to-consumer marketing experience, so they brought me in to improve the website, product strategy, customization experience, and growth plan.",
+      },
+      {
+        label: "The Problem",
+        title: "The product and buying experience needed a clearer system.",
+        bullets: [
+          "The existing website was built by offshore developers and felt unpolished, clunky, and difficult to optimize.",
+          "The product line was messy and lacked a clear B2C strategy.",
+          "Some products needed to be removed, replaced, or repositioned.",
+          "The company needed a better system for selling customized products online.",
+          "Customers needed an easier way to understand what they were buying and preview customized products before purchase.",
+          "The business needed clearer flagship products, bundles, upsells, and a more structured sales strategy.",
+        ],
+      },
+      {
+        label: "My Role",
+        title: "Leading the B2C strategy and ecommerce rebuild.",
+        body:
+          "I was responsible for improving the website, product structure, customization flow, sales strategy, and AI-assisted development of a more optimized direct-to-consumer experience.",
+      },
+      {
+        label: "What I Did",
+        title: "Rebuilt the experience around clarity, customization, and conversion.",
+        bullets: [
+          "Built a fully custom-coded ecommerce website optimized for customized golf products.",
+          "Created a customization flow where customers can enter product details and preview what their final product may look like.",
+          "Designed the system so customer customization details are easier for the fulfillment team to receive and execute.",
+          "Helped clean up and restructure the product line by removing weaker products and recommending better-fit additions.",
+          "Helped create bundle and upsell opportunities to increase order value.",
+          "Repositioned the sales strategy around flagship products that are easier for buyers to understand.",
+          "Helped simplify the buying experience for gift-givers who may not know much about golf.",
+          "Used AI-assisted coding and product strategy to move faster without relying on a traditional development team.",
+        ],
+      },
+    ],
+    outcomes: [
+      { value: "Custom", label: "Ecommerce experience built" },
+      { value: "B2C", label: "Sales generated before full launch" },
+      { value: "↑", label: "Revenue above prior baseline" },
+    ],
+    outcomeTitle: "A stronger foundation for direct-to-consumer growth.",
+    outcomeDetails: [
+      "Created a stronger customization and product preview experience for buyers and fulfillment.",
+      "Improved the product structure, sales flow, flagship-product strategy, and upsell opportunities.",
+      "Established a more scalable foundation for B2C marketing, product launches, and future growth.",
+    ],
+    skills: [
+      "Ecommerce Strategy",
+      "B2C Growth",
+      "AI-Assisted Development",
+      "Product Strategy",
+      "Website Development",
+      "Product Operations",
+      "Customization Workflows",
+      "Sales Strategy",
+      "Upsell Strategy",
+      "Brand Positioning",
+      "Customer Journey",
+      "Golf Market",
+      "Startup Execution",
+    ],
   },
 ];
 
@@ -372,7 +585,7 @@ export function CaseStudyModals() {
                         <p className="case-modal-section-label">
                           Outcomes & Impact
                         </p>
-                        <h3>Stronger programs, economics, and execution.</h3>
+                        <h3>{selectedStudy.outcomeTitle}</h3>
                       </div>
                       <div className="case-modal-outcome-grid">
                         {selectedStudy.outcomes.map((outcome, index) => (
