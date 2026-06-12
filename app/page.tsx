@@ -3,10 +3,8 @@ import { HologramOperatorPanel } from "./components/hologram-operator-panel";
 
 type IconName =
   | "arrow"
-  | "briefcase"
   | "code"
   | "layers"
-  | "play"
   | "spark"
   | "target";
 
@@ -41,31 +39,56 @@ const capabilities: {
   },
 ];
 
-const selectedWork: {
+const roleTargets: {
   title: string;
-  description: string;
-  icon: IconName;
+  signal: string;
+  items: string[];
 }[] = [
   {
-    title: "Website & Product Mockups",
-    description: "Interfaces and prototypes that make early ideas feel tangible.",
-    icon: "layers",
+    title: "Role Lanes",
+    signal: "Position",
+    items: [
+      "Business Operations",
+      "Program Management",
+      "Product Operations",
+      "Special Projects",
+      "Founder's Office",
+      "Strategy & Operations",
+    ],
   },
   {
-    title: "AI / Vibe Coding Projects",
-    description: "Fast, useful experiments built with modern AI workflows.",
-    icon: "code",
+    title: "Company Fit",
+    signal: "Environment",
+    items: [
+      "Startups",
+      "Founder-led companies",
+      "Fintech",
+      "Sports",
+      "Media",
+      "Marketplaces",
+      "SaaS",
+      "Creator-led companies",
+    ],
   },
   {
-    title: "Drone Footage / Creative Work",
-    description: "Visual storytelling, aerial footage, and hands-on creative production.",
-    icon: "play",
+    title: "Work Style",
+    signal: "Operating Mode",
+    items: [
+      "Ambiguity",
+      "Ownership",
+      "Systems",
+      "Launches",
+      "Cross-functional execution",
+      "Building the playbook",
+    ],
   },
-  {
-    title: "Systems / SOPs / Process Design",
-    description: "Clear operating infrastructure that helps teams do their best work.",
-    icon: "briefcase",
-  },
+];
+
+const strongestWhen = [
+  "The path is not fully defined yet",
+  "Multiple moving pieces need structure",
+  "Founders or leadership need someone to turn ideas into action",
+  "The work requires both strategy and hands-on execution",
 ];
 
 const experience = [
@@ -131,13 +154,6 @@ function Icon({ name, className = "size-5" }: { name: IconName; className?: stri
         <path d="m13 6 6 6-6 6" />
       </>
     ),
-    briefcase: (
-      <>
-        <rect width="18" height="13" x="3" y="7" rx="2" />
-        <path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
-        <path d="M3 12h18" />
-      </>
-    ),
     code: (
       <>
         <path d="m8 9-3 3 3 3" />
@@ -150,12 +166,6 @@ function Icon({ name, className = "size-5" }: { name: IconName; className?: stri
         <path d="m12 2 9 5-9 5-9-5 9-5Z" />
         <path d="m3 12 9 5 9-5" />
         <path d="m3 17 9 5 9-5" />
-      </>
-    ),
-    play: (
-      <>
-        <rect width="18" height="18" x="3" y="3" rx="3" />
-        <path d="m10 8 6 4-6 4V8Z" />
       </>
     ),
     spark: (
@@ -371,31 +381,69 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section-shell section-space">
-        <SectionHeading
-          eyebrow="Selected Work"
-          title="Always building something."
-          description="Explorations, experiments, and useful things made across product, technology, media, and operations."
-        />
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {selectedWork.map((work) => (
-            <a className="work-card group" href="#" key={work.title}>
-              <div className="flex items-center justify-between">
-                <span className="icon-box">
-                  <Icon name={work.icon} />
-                </span>
-                <ArrowIcon className="size-4 -rotate-45 text-slate-600 transition-all group-hover:rotate-0 group-hover:text-cyan-300" />
+      <section className="role-target-section">
+        <div className="role-target-grid" />
+        <div className="section-shell section-space relative">
+          <div className="role-target-layout">
+            <div className="role-target-intro">
+              <p className="eyebrow">What I&apos;m Looking For</p>
+              <h2 className="mt-4 max-w-xl text-3xl font-semibold tracking-[-0.04em] text-white sm:text-4xl lg:text-[2.65rem] lg:leading-[1.08]">
+                Roles where I can help turn ambiguity into execution.
+              </h2>
+              <p className="mt-6 max-w-xl text-base leading-7 text-slate-400">
+                I&apos;m looking for business operations, program management,
+                project management, product operations, strategy &amp;
+                operations, special projects, or founder-led roles where I can
+                help build systems, coordinate teams, launch initiatives, and
+                move important work forward.
+              </p>
+              <div className="role-target-status">
+                <span className="role-target-status-dot" />
+                <span>Target profile active</span>
+                <span className="role-target-status-line" />
               </div>
-              <div className="mt-10">
-                <h3 className="text-base font-semibold leading-6 text-white">
-                  {work.title}
-                </h3>
-                <p className="mt-2 text-sm leading-6 text-slate-500">
-                  {work.description}
-                </p>
+            </div>
+
+            <div className="mission-board">
+              <div className="mission-board-scan" />
+              <div className="mission-board-header">
+                <span>Mission Parameters</span>
+                <span>CK // ROLE-FIT</span>
               </div>
-            </a>
-          ))}
+
+              <div className="mission-modules">
+                {roleTargets.map((target, index) => (
+                  <article className="mission-module" key={target.title}>
+                    <div className="mission-module-index">0{index + 1}</div>
+                    <div className="mission-module-copy">
+                      <p>{target.signal}</p>
+                      <h3>{target.title}</h3>
+                    </div>
+                    <div className="mission-module-tags">
+                      {target.items.map((item) => (
+                        <span key={item}>{item}</span>
+                      ))}
+                    </div>
+                  </article>
+                ))}
+              </div>
+
+              <div className="mission-strengths">
+                <div className="mission-strengths-heading">
+                  <span>I&apos;m strongest when</span>
+                  <span>Conditions // 04</span>
+                </div>
+                <ul>
+                  {strongestWhen.map((item, index) => (
+                    <li key={item}>
+                      <span>0{index + 1}</span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
