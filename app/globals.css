@@ -1066,9 +1066,10 @@ a {
 }
 
 .case-modal {
-  width: min(1120px, calc(100% - 2rem));
+  width: min(1440px, calc(100% - 3rem));
   max-width: none;
-  max-height: min(900px, calc(100dvh - 2rem));
+  max-height: min(940px, calc(100dvh - 2rem));
+  margin: auto;
   overflow: hidden;
   border: 0;
   padding: 0;
@@ -1090,7 +1091,7 @@ a {
 
 .case-modal-frame {
   position: relative;
-  height: min(900px, calc(100dvh - 2rem));
+  height: min(940px, calc(100dvh - 2rem));
   overflow: hidden;
   border: 1px solid rgba(103, 232, 249, 0.48);
   background:
@@ -1262,10 +1263,14 @@ a {
 .case-modal-header {
   position: relative;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 150px;
-  gap: 3rem;
+  grid-template-columns: minmax(0, 1fr) minmax(310px, 390px);
+  gap: 4rem;
   border-bottom: 1px solid rgba(103, 232, 249, 0.12);
   padding: 4.5rem 4.5rem 3.5rem;
+}
+
+.case-modal-intro {
+  align-self: center;
 }
 
 .case-modal-header::after {
@@ -1299,22 +1304,46 @@ a {
 }
 
 .case-modal-record {
-  display: flex;
-  min-height: 160px;
-  flex-direction: column;
-  align-items: flex-end;
-  justify-content: center;
-  border-right: 1px solid rgba(103, 232, 249, 0.2);
-  padding-right: 1.25rem;
+  align-self: start;
+  border: 1px solid rgba(103, 232, 249, 0.16);
+  background:
+    linear-gradient(rgba(56, 189, 248, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(56, 189, 248, 0.025) 1px, transparent 1px),
+    rgba(3, 17, 31, 0.58);
+  background-size: 22px 22px;
+  padding: 1.15rem 1.25rem 1.25rem;
   font-family: var(--font-mono-stack);
   font-size: 0.5rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: rgba(103, 232, 249, 0.45);
+  clip-path: polygon(
+    0 10px,
+    10px 0,
+    100% 0,
+    100% calc(100% - 10px),
+    calc(100% - 10px) 100%,
+    0 100%
+  );
 }
 
-.case-modal-record strong {
-  font-size: 4.75rem;
+.case-modal-record-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  border-bottom: 1px solid rgba(103, 232, 249, 0.1);
+  padding-bottom: 0.9rem;
+}
+
+.case-modal-record-heading > div {
+  display: flex;
+  align-items: baseline;
+  gap: 0.65rem;
+}
+
+.case-modal-record-heading strong {
+  font-size: 2.8rem;
   font-weight: 600;
   line-height: 1;
   letter-spacing: -0.08em;
@@ -1344,29 +1373,18 @@ a {
 }
 
 .case-modal-layout {
-  display: grid;
-  grid-template-columns: 250px minmax(0, 1fr);
-  gap: 4rem;
-  padding: 4rem 4.5rem 5rem;
+  padding: 4.5rem 4.5rem 5rem;
 }
 
 .case-modal-snapshot {
-  align-self: start;
-  border: 1px solid rgba(103, 232, 249, 0.15);
-  background:
-    linear-gradient(rgba(56, 189, 248, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(56, 189, 248, 0.03) 1px, transparent 1px),
-    rgba(3, 17, 31, 0.66);
-  background-size: 24px 24px;
-  padding: 1.35rem;
-  clip-path: polygon(0 12px, 12px 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%);
+  padding-top: 1rem;
 }
 
 .case-modal-detail {
   display: grid;
   gap: 0.35rem;
   border-bottom: 1px solid rgba(103, 232, 249, 0.09);
-  padding: 1rem 0;
+  padding: 0.75rem 0;
 }
 
 .case-modal-detail span {
@@ -1377,27 +1395,21 @@ a {
   color: rgba(103, 232, 249, 0.45);
 }
 
-.case-modal-detail strong {
-  font-size: 0.8rem;
+.case-modal-record .case-modal-detail strong {
+  font-family: var(--font-sans-stack);
+  font-size: 0.72rem;
   font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0;
+  text-transform: none;
   color: rgba(226, 232, 240, 0.76);
-}
-
-.case-modal-transmission {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  margin-top: 1rem;
-  font-family: var(--font-mono-stack);
-  font-size: 0.48rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: rgba(103, 232, 249, 0.58);
 }
 
 .case-modal-content {
   display: grid;
-  gap: 3.5rem;
+  max-width: 1040px;
+  gap: 4rem;
+  margin-inline: auto;
 }
 
 .case-modal-section {
@@ -1433,10 +1445,40 @@ a {
 
 .case-modal-section p:last-child {
   margin-top: 0.8rem;
-  max-width: 640px;
+  max-width: 860px;
   font-size: 0.9rem;
   line-height: 1.75;
   color: #94a3b8;
+}
+
+.case-modal-list {
+  display: grid;
+  max-width: 900px;
+  gap: 0.7rem;
+  margin-top: 1.1rem;
+  padding: 0;
+  list-style: none;
+}
+
+.case-modal-list li {
+  position: relative;
+  padding-left: 1.2rem;
+  font-size: 0.88rem;
+  line-height: 1.7;
+  color: #94a3b8;
+}
+
+.case-modal-list li::before {
+  position: absolute;
+  top: 0.72em;
+  left: 0;
+  width: 5px;
+  height: 5px;
+  border: 1px solid rgba(103, 232, 249, 0.75);
+  background: rgba(34, 211, 238, 0.2);
+  box-shadow: 0 0 7px rgba(34, 211, 238, 0.45);
+  content: "";
+  transform: rotate(45deg);
 }
 
 .case-modal-outcomes {
@@ -1483,6 +1525,59 @@ a {
   margin-top: 0.55rem;
   font-size: 0.75rem;
   color: #64748b;
+}
+
+.case-modal-outcome-list {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  max-width: none;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.case-modal-outcome-list li {
+  border-top: 1px solid rgba(103, 232, 249, 0.1);
+  padding-top: 1rem;
+  padding-right: 0.5rem;
+}
+
+.case-modal-outcome-list li::before {
+  top: 1.72em;
+}
+
+.case-modal-skills {
+  border-top: 1px solid rgba(103, 232, 249, 0.13);
+  padding-top: 2rem;
+}
+
+.case-modal-skills > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-top: 1rem;
+}
+
+.case-modal-skills span {
+  border: 1px solid rgba(103, 232, 249, 0.14);
+  background: rgba(8, 47, 73, 0.16);
+  padding: 0.48rem 0.7rem;
+  font-family: var(--font-mono-stack);
+  font-size: 0.5rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(186, 230, 253, 0.65);
+}
+
+.case-modal-empty {
+  display: flex;
+  min-height: 260px;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  font-family: var(--font-mono-stack);
+  font-size: 0.58rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(103, 232, 249, 0.48);
 }
 
 .case-modal-footer {
@@ -2236,17 +2331,10 @@ a {
   }
 
   .case-modal-record {
-    min-height: auto;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 0.75rem;
-    border-right: 0;
-    border-left: 1px solid rgba(103, 232, 249, 0.2);
-    padding: 0.5rem 0 0.5rem 1rem;
+    width: 100%;
   }
 
-  .case-modal-record strong {
+  .case-modal-record-heading strong {
     font-size: 2rem;
   }
 
@@ -2255,8 +2343,6 @@ a {
   }
 
   .case-modal-layout {
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
     padding: 3rem 2rem 4rem;
   }
 
@@ -2266,9 +2352,12 @@ a {
     gap: 0 1.5rem;
   }
 
-  .case-modal-snapshot > .case-modal-section-label,
-  .case-modal-transmission {
+  .case-modal-snapshot > .case-modal-section-label {
     grid-column: 1 / -1;
+  }
+
+  .case-modal-outcome-list {
+    grid-template-columns: 1fr;
   }
 
   .case-modal-footer {
@@ -2483,7 +2572,6 @@ a {
   }
 
   .case-modal-layout {
-    gap: 2.25rem;
     padding: 2.5rem 1.35rem 3.5rem;
   }
 
@@ -2491,8 +2579,11 @@ a {
     grid-template-columns: 1fr;
   }
 
-  .case-modal-snapshot > .case-modal-section-label,
-  .case-modal-transmission {
+  .case-modal-record .case-modal-detail strong {
+    font-size: 0.78rem;
+  }
+
+  .case-modal-snapshot > .case-modal-section-label {
     grid-column: auto;
   }
 

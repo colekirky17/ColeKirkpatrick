@@ -8,6 +8,24 @@ type CaseStudy = {
   description: string;
   tags: string[];
   number: string;
+  snapshot?: {
+    role?: string;
+    timeline?: string;
+    team?: string;
+    scope?: string;
+  };
+  sections?: {
+    label: string;
+    title: string;
+    body?: string;
+    bullets?: string[];
+  }[];
+  outcomes?: {
+    value: string;
+    label: string;
+  }[];
+  outcomeDetails?: string[];
+  skills?: string[];
 };
 
 const caseStudies: CaseStudy[] = [
@@ -18,6 +36,71 @@ const caseStudies: CaseStudy[] = [
       "Scaling the systems, people, and programs behind a fast-growing career education platform.",
     tags: ["Operations", "Programs", "Growth"],
     number: "01",
+    snapshot: {
+      role: "Program Manager",
+      team: "2 employees · 20+ instructors · 50+ tutors/coaches",
+      scope: "Course creation, management, audits, and optimization",
+    },
+    sections: [
+      {
+        label: "Context",
+        title: "Building the operating system for course expansion.",
+        body:
+          "CourseCareers had gained strong traction with its original career courses and wanted to expand into more programs. The company needed better systems for creating, managing, auditing, and improving online courses at scale.",
+      },
+      {
+        label: "The Problem",
+        title: "Expansion needed to become repeatable without losing quality.",
+        bullets: [
+          "Course expansion had previously depended heavily on founder bandwidth.",
+          "There was limited structure around instructor sourcing, course creation, audits, and post-launch improvements.",
+          "Finding credible instructors for new career paths was difficult.",
+          "Quality needed to stay consistent across programs.",
+          "The company needed stronger systems for coaching, tutors, student feedback, and ongoing optimization.",
+        ],
+      },
+      {
+        label: "My Role",
+        title: "Program management across the full education lifecycle.",
+        body:
+          "I researched new course opportunities, sourced instructors, coordinated course launches, built instructor workflows, managed audits, reviewed student feedback, and improved education programs after launch.",
+      },
+      {
+        label: "What I Did",
+        title: "Created structure around people, process, and improvement.",
+        bullets: [
+          "Helped oversee the creation and optimization of 20+ online courses.",
+          "Managed 2 internal employees, 20+ contracted instructors, and 50+ tutors and coaches.",
+          "Built and improved course creation, course management, and audit processes.",
+          "Created SOPs and repeatable workflows for instructors and internal teams.",
+          "Helped support and improve the coaching and tutor ecosystem.",
+          "Used internal data and student feedback to improve course offerings and outcomes.",
+          "Helped execute student-facing product and experience improvements.",
+        ],
+      },
+    ],
+    outcomes: [
+      { value: "20+", label: "Courses launched or optimized" },
+      { value: "50+", label: "Tutors and coaches supported" },
+      { value: "Millions", label: "Education product revenue supported" },
+    ],
+    outcomeDetails: [
+      "Net income per course sale improved through contract and compensation model improvements.",
+      "Graduation and progression rates improved through course quality, coaching, and student experience initiatives.",
+      "Course production, audits, instructor management, and ongoing optimization gained stronger operational structure.",
+    ],
+    skills: [
+      "Program Management",
+      "Business Operations",
+      "Process Building",
+      "SOP Creation",
+      "Instructor Management",
+      "Contractor Management",
+      "Cross-Functional Execution",
+      "Online Education",
+      "Student Experience",
+      "Data-Informed Optimization",
+    ],
   },
   {
     title: "Hungry Bull",
@@ -83,6 +166,14 @@ function CloseIcon() {
 export function CaseStudyModals() {
   const dialogRef = useRef<HTMLDialogElement>(null);
   const [selectedStudy, setSelectedStudy] = useState<CaseStudy | null>(null);
+  const snapshotDetails = selectedStudy?.snapshot
+    ? [
+        ["Role", selectedStudy.snapshot.role],
+        ["Timeline", selectedStudy.snapshot.timeline],
+        ["Team", selectedStudy.snapshot.team],
+        ["Scope", selectedStudy.snapshot.scope],
+      ].filter((detail): detail is [string, string] => Boolean(detail[1]))
+    : [];
 
   useEffect(() => {
     const dialog = dialogRef.current;
@@ -206,7 +297,7 @@ export function CaseStudyModals() {
 
             <div className="case-modal-scroll">
               <header className="case-modal-header">
-                <div>
+                <div className="case-modal-intro">
                   <p className="case-modal-kicker">
                     Case Study // {selectedStudy.number}
                   </p>
@@ -222,9 +313,26 @@ export function CaseStudyModals() {
                   </p>
                 </div>
                 <div className="case-modal-record">
-                  <span>Record</span>
-                  <strong>{selectedStudy.number}</strong>
-                  <span>Status // Draft</span>
+                  <div className="case-modal-record-heading">
+                    <div>
+                      <span>Record</span>
+                      <strong>{selectedStudy.number}</strong>
+                    </div>
+                    <span>Status // Active</span>
+                  </div>
+                  {snapshotDetails.length > 0 ? (
+                    <div className="case-modal-snapshot">
+                      <p className="case-modal-section-label">
+                        Project Snapshot
+                      </p>
+                      {snapshotDetails.map(([label, value]) => (
+                        <div className="case-modal-detail" key={label}>
+                          <span>{label}</span>
+                          <strong>{value}</strong>
+                        </div>
+                      ))}
+                    </div>
+                  ) : null}
                 </div>
               </header>
 
@@ -235,95 +343,73 @@ export function CaseStudyModals() {
               </div>
 
               <div className="case-modal-layout">
-                <aside className="case-modal-snapshot">
-                  <p className="case-modal-section-label">Project Snapshot</p>
-                  {[
-                    ["Role", "Add role"],
-                    ["Timeline", "Add timeline"],
-                    ["Team", "Add team"],
-                    ["Scope", "Add scope"],
-                  ].map(([label, value]) => (
-                    <div className="case-modal-detail" key={label}>
-                      <span>{label}</span>
-                      <strong>{value}</strong>
-                    </div>
-                  ))}
-                  <div className="case-modal-transmission">
-                    <span className="case-modal-status-dot" />
-                    Content framework ready
-                  </div>
-                </aside>
-
                 <div className="case-modal-content">
-                  <section className="case-modal-section">
-                    <div className="case-modal-section-number">01</div>
-                    <div>
-                      <p className="case-modal-section-label">Overview</p>
-                      <h3>The project in one clear narrative.</h3>
-                      <p>
-                        Add a concise overview explaining what the project was,
-                        why it mattered, and the context needed to understand the
-                        work.
-                      </p>
-                    </div>
-                  </section>
+                  {selectedStudy.sections?.map((section, index) => (
+                    <section className="case-modal-section" key={section.label}>
+                      <div className="case-modal-section-number">
+                        {String(index + 1).padStart(2, "0")}
+                      </div>
+                      <div>
+                        <p className="case-modal-section-label">
+                          {section.label}
+                        </p>
+                        <h3>{section.title}</h3>
+                        {section.body ? <p>{section.body}</p> : null}
+                        {section.bullets ? (
+                          <ul className="case-modal-list">
+                            {section.bullets.map((bullet) => (
+                              <li key={bullet}>{bullet}</li>
+                            ))}
+                          </ul>
+                        ) : null}
+                      </div>
+                    </section>
+                  ))}
 
-                  <section className="case-modal-section">
-                    <div className="case-modal-section-number">02</div>
-                    <div>
-                      <p className="case-modal-section-label">The Challenge</p>
-                      <h3>What needed to change or become possible.</h3>
-                      <p>
-                        Describe the core problem, constraints, stakes, and the
-                        conditions that made this project worth solving.
-                      </p>
-                    </div>
-                  </section>
-
-                  <section className="case-modal-section">
-                    <div className="case-modal-section-number">03</div>
-                    <div>
-                      <p className="case-modal-section-label">
-                        My Role & Contribution
-                      </p>
-                      <h3>What you owned and how you moved it forward.</h3>
-                      <p>
-                        Clarify your responsibilities, decisions, leadership,
-                        collaboration, and direct contribution to the outcome.
-                      </p>
-                    </div>
-                  </section>
-
-                  <section className="case-modal-section">
-                    <div className="case-modal-section-number">04</div>
-                    <div>
-                      <p className="case-modal-section-label">The Approach</p>
-                      <h3>The systems, strategy, and execution.</h3>
-                      <p>
-                        Walk through the major phases of the work, including the
-                        choices, operating principles, and turning points that
-                        shaped the result.
-                      </p>
-                    </div>
-                  </section>
-
-                  <section className="case-modal-outcomes">
-                    <div className="case-modal-outcomes-heading">
-                      <p className="case-modal-section-label">Outcomes & Impact</p>
-                      <h3>Make the result measurable.</h3>
-                    </div>
-                    <div className="case-modal-outcome-grid">
-                      {["Primary result", "Business impact", "Key learning"].map(
-                        (label, index) => (
-                          <div className="case-modal-outcome" key={label}>
+                  {selectedStudy.outcomes ? (
+                    <section className="case-modal-outcomes">
+                      <div className="case-modal-outcomes-heading">
+                        <p className="case-modal-section-label">
+                          Outcomes & Impact
+                        </p>
+                        <h3>Stronger programs, economics, and execution.</h3>
+                      </div>
+                      <div className="case-modal-outcome-grid">
+                        {selectedStudy.outcomes.map((outcome, index) => (
+                          <div className="case-modal-outcome" key={outcome.label}>
                             <span>0{index + 1}</span>
-                            <strong>Add metric</strong>
-                            <p>{label}</p>
+                            <strong>{outcome.value}</strong>
+                            <p>{outcome.label}</p>
                           </div>
-                        ),
-                      )}
+                        ))}
+                      </div>
+                      {selectedStudy.outcomeDetails ? (
+                        <ul className="case-modal-list case-modal-outcome-list">
+                          {selectedStudy.outcomeDetails.map((outcome) => (
+                            <li key={outcome}>{outcome}</li>
+                          ))}
+                        </ul>
+                      ) : null}
+                    </section>
+                  ) : null}
+
+                  {selectedStudy.skills ? (
+                    <section className="case-modal-skills">
+                      <p className="case-modal-section-label">Skills Applied</p>
+                      <div>
+                        {selectedStudy.skills.map((skill) => (
+                          <span key={skill}>{skill}</span>
+                        ))}
+                      </div>
+                    </section>
+                  ) : null}
+
+                  {!selectedStudy.sections ? (
+                    <div className="case-modal-empty">
+                      <span className="case-modal-status-dot" />
+                      Case study content awaiting transmission
                     </div>
-                  </section>
+                  ) : null}
                 </div>
               </div>
 
