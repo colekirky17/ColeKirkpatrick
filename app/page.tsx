@@ -495,14 +495,39 @@ export default function Home() {
 
       <section className="section-shell py-16 sm:py-24" id="contact">
         <div className="contact-panel relative overflow-hidden rounded-3xl px-6 py-12 sm:px-10 sm:py-14 lg:px-14">
-          <div className="absolute -right-20 -top-32 size-[360px] rounded-full bg-cyan-400/[0.09] blur-[100px]" />
-          <div className="absolute bottom-0 left-1/3 size-[280px] rounded-full bg-blue-600/[0.08] blur-[100px]" />
-          <div className="relative flex flex-col gap-10 lg:flex-row lg:items-end lg:justify-between">
+          <div className="contact-grid" />
+          <div className="contact-scan" />
+          <div className="contact-edge-light" />
+          <div className="contact-orbit" aria-hidden="true">
+            <span className="contact-orbit-ring contact-orbit-ring-one" />
+            <span className="contact-orbit-ring contact-orbit-ring-two" />
+            <span className="contact-orbit-core">
+              <span>CK</span>
+            </span>
+            <span className="contact-orbit-node contact-orbit-node-one" />
+            <span className="contact-orbit-node contact-orbit-node-two" />
+          </div>
+          <span className="contact-corner contact-corner-tl" />
+          <span className="contact-corner contact-corner-tr" />
+          <span className="contact-corner contact-corner-bl" />
+          <span className="contact-corner contact-corner-br" />
+
+          <div className="relative z-10 flex flex-col gap-10 lg:flex-row lg:items-end lg:justify-between">
             <div>
-              <p className="eyebrow">Start A Conversation</p>
+              <div className="flex flex-wrap items-center gap-3">
+                <p className="eyebrow">Start A Conversation</p>
+                <span className="contact-availability">
+                  <span className="contact-availability-dot" />
+                  Available for the right project
+                </span>
+              </div>
               <h2 className="mt-4 max-w-2xl text-4xl font-semibold tracking-[-0.055em] text-white sm:text-5xl">
                 Let&apos;s build something useful.
               </h2>
+              <p className="mt-4 max-w-xl text-sm leading-6 text-slate-400 sm:text-base">
+                Have an ambitious idea, a messy system, or a useful thing worth
+                building? Let&apos;s turn it into forward motion.
+              </p>
               <div className="mt-7 flex flex-wrap gap-x-6 gap-y-3 text-sm text-slate-400">
                 <a className="link-underline hover:text-cyan-200" href="mailto:hello@colekirkpatrick.com">
                   hello@colekirkpatrick.com
@@ -512,7 +537,7 @@ export default function Home() {
                 </a>
               </div>
             </div>
-            <div className="flex flex-col gap-3 sm:flex-row">
+            <div className="contact-actions flex flex-col gap-3 sm:flex-row">
               <Button href="#experience" variant="secondary">
                 View Resume
               </Button>

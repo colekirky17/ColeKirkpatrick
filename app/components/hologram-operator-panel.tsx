@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useRef, type PointerEvent } from "react";
 
 const operatorMetrics = [
@@ -103,26 +104,17 @@ export function HologramOperatorPanel() {
             <span className="orbit-particle orbit-particle-one" />
             <span className="orbit-particle orbit-particle-two" />
 
-            <div className="hologram-avatar">
-              <div className="avatar-aura" />
-              <div className="avatar-bust">
-                <span className="avatar-head">
-                  <span className="avatar-face-line avatar-face-line-one" />
-                  <span className="avatar-face-line avatar-face-line-two" />
-                </span>
-                <span className="avatar-neck" />
-                <span className="avatar-shoulders">
-                  <span className="avatar-chest-mark">CK</span>
-                </span>
-              </div>
-              <span className="avatar-crosshair avatar-crosshair-horizontal" />
-              <span className="avatar-crosshair avatar-crosshair-vertical" />
-            </div>
-
-            <div className="hologram-pedestal">
-              <span />
-              <span />
-              <span />
+            <div className="hologram-portrait">
+              <div className="portrait-aura" />
+              <Image
+                alt="Cole Kirkpatrick rendered as a blue hologram"
+                className="hologram-portrait-image"
+                height={1400}
+                priority
+                sizes="(max-width: 640px) 190px, 240px"
+                src="/cole-kirkpatrick-hologram.png"
+                width={800}
+              />
             </div>
           </div>
 

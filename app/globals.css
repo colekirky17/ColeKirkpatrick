@@ -349,34 +349,35 @@ a {
   transition: transform 180ms ease-out;
 }
 
-.hologram-avatar {
+.hologram-portrait {
   position: absolute;
-  top: 50%;
+  z-index: 4;
+  bottom: -5px;
   left: 54%;
-  width: 184px;
-  height: 184px;
-  border: 1px solid rgba(103, 232, 249, 0.26);
-  border-radius: 50%;
-  background:
-    radial-gradient(circle, rgba(56, 189, 248, 0.2), transparent 62%),
-    rgba(3, 19, 36, 0.66);
-  box-shadow:
-    0 0 28px rgba(34, 211, 238, 0.16),
-    inset 0 0 35px rgba(34, 211, 238, 0.08);
-  transform: translate(-50%, -52%);
-  animation: avatar-float 5s ease-in-out infinite;
+  width: 224px;
+  transform: translateX(-50%);
+  animation: portrait-float 5s ease-in-out infinite;
+  filter: drop-shadow(0 0 15px rgba(34, 211, 238, 0.22));
 }
 
-.avatar-aura {
+.portrait-aura {
   position: absolute;
-  inset: 12px;
-  border: 1px dashed rgba(103, 232, 249, 0.28);
+  top: 14%;
+  left: 50%;
+  width: 132px;
+  height: 132px;
+  border: 1px dashed rgba(103, 232, 249, 0.24);
   border-radius: 50%;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.14), transparent 66%);
+  box-shadow:
+    0 0 28px rgba(34, 211, 238, 0.12),
+    inset 0 0 28px rgba(34, 211, 238, 0.07);
+  transform: translateX(-50%);
   animation: avatar-spin 24s linear infinite;
 }
 
-.avatar-aura::before,
-.avatar-aura::after {
+.portrait-aura::before,
+.portrait-aura::after {
   position: absolute;
   border-radius: 50%;
   background: #67e8f9;
@@ -384,136 +385,26 @@ a {
   content: "";
 }
 
-.avatar-aura::before {
+.portrait-aura::before {
   top: 16px;
   right: 16px;
   width: 4px;
   height: 4px;
 }
 
-.avatar-aura::after {
+.portrait-aura::after {
   bottom: 8px;
   left: 34px;
   width: 3px;
   height: 3px;
 }
 
-.avatar-bust {
-  position: absolute;
-  inset: 18px;
-  overflow: hidden;
-  border-radius: 50%;
-  background:
-    linear-gradient(rgba(56, 189, 248, 0.025) 50%, transparent 50%),
-    radial-gradient(circle at 50% 42%, rgba(34, 211, 238, 0.14), transparent 48%);
-  background-size:
-    100% 4px,
-    auto;
-  filter: drop-shadow(0 0 9px rgba(34, 211, 238, 0.38));
-}
-
-.avatar-head,
-.avatar-neck,
-.avatar-shoulders {
-  position: absolute;
-  left: 50%;
-  display: block;
-  border: 1px solid rgba(165, 243, 252, 0.72);
-  background:
-    repeating-linear-gradient(
-      to bottom,
-      rgba(34, 211, 238, 0.19) 0 2px,
-      rgba(6, 32, 54, 0.72) 2px 5px
-    );
-  box-shadow:
-    inset 0 0 24px rgba(56, 189, 248, 0.18),
-    0 0 12px rgba(34, 211, 238, 0.17);
-}
-
-.avatar-head {
-  top: 24px;
-  z-index: 3;
-  width: 52px;
-  height: 64px;
-  border-radius: 44% 44% 48% 48%;
-  transform: translateX(-50%);
-}
-
-.avatar-head::before {
-  position: absolute;
-  top: -4px;
-  right: 2px;
-  left: 2px;
-  height: 18px;
-  border-top: 5px solid rgba(103, 232, 249, 0.5);
-  border-radius: 50%;
-  content: "";
-  transform: rotate(-7deg);
-}
-
-.avatar-face-line {
-  position: absolute;
-  left: 50%;
-  height: 1px;
-  background: rgba(165, 243, 252, 0.45);
-  transform: translateX(-50%);
-}
-
-.avatar-face-line-one {
-  top: 31px;
-  width: 28px;
-}
-
-.avatar-face-line-two {
-  top: 44px;
-  width: 16px;
-}
-
-.avatar-neck {
-  top: 79px;
+.hologram-portrait-image {
+  position: relative;
   z-index: 2;
-  width: 28px;
-  height: 28px;
-  transform: translateX(-50%);
-}
-
-.avatar-shoulders {
-  bottom: -28px;
-  width: 132px;
-  height: 92px;
-  border-radius: 52% 52% 16% 16%;
-  transform: translateX(-50%);
-}
-
-.avatar-chest-mark {
-  position: absolute;
-  top: 38px;
-  left: 50%;
-  font-family: var(--font-mono-stack);
-  font-size: 0.56rem;
-  letter-spacing: 0.18em;
-  color: rgba(165, 243, 252, 0.68);
-  transform: translateX(-44%);
-}
-
-.avatar-crosshair {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  background: linear-gradient(90deg, transparent, rgba(103, 232, 249, 0.25), transparent);
-}
-
-.avatar-crosshair-horizontal {
-  width: 125%;
-  height: 1px;
-  transform: translate(-50%, -50%);
-}
-
-.avatar-crosshair-vertical {
-  width: 1px;
-  height: 125%;
-  background: linear-gradient(transparent, rgba(103, 232, 249, 0.2), transparent);
-  transform: translate(-50%, -50%);
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 .orbit {
@@ -577,49 +468,6 @@ a {
   width: 3px;
   height: 3px;
   animation: particle-two 4.8s ease-in-out infinite;
-}
-
-.hologram-pedestal {
-  position: absolute;
-  bottom: 4px;
-  left: 54%;
-  width: 270px;
-  height: 64px;
-  transform: translateX(-50%);
-}
-
-.hologram-pedestal span {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  display: block;
-  border: 1px solid rgba(103, 232, 249, 0.36);
-  border-radius: 50%;
-  box-shadow:
-    0 0 12px rgba(34, 211, 238, 0.25),
-    inset 0 0 12px rgba(34, 211, 238, 0.08);
-  transform: translateX(-50%);
-  animation: pedestal-pulse 3.2s ease-in-out infinite;
-}
-
-.hologram-pedestal span:nth-child(1) {
-  width: 100%;
-  height: 48px;
-}
-
-.hologram-pedestal span:nth-child(2) {
-  bottom: 8px;
-  width: 80%;
-  height: 36px;
-  animation-delay: -1s;
-}
-
-.hologram-pedestal span:nth-child(3) {
-  bottom: 16px;
-  width: 58%;
-  height: 24px;
-  border-color: rgba(207, 250, 254, 0.7);
-  animation-delay: -2s;
 }
 
 .operator-metrics {
@@ -749,13 +597,13 @@ a {
   }
 }
 
-@keyframes avatar-float {
+@keyframes portrait-float {
   0%,
   100% {
-    transform: translate(-50%, -52%);
+    transform: translateX(-50%) translateY(0);
   }
   50% {
-    transform: translate(-50%, -55%);
+    transform: translateX(-50%) translateY(-5px);
   }
 }
 
@@ -774,18 +622,6 @@ a {
   50% {
     opacity: 0.95;
     filter: brightness(1.35);
-  }
-}
-
-@keyframes pedestal-pulse {
-  0%,
-  100% {
-    opacity: 0.4;
-    transform: translateX(-50%) scale(0.94);
-  }
-  50% {
-    opacity: 0.9;
-    transform: translateX(-50%) scale(1.04);
   }
 }
 
@@ -869,24 +705,349 @@ a {
 }
 
 .contact-panel {
-  border: 1px solid rgba(103, 232, 249, 0.15);
+  border: 1px solid rgba(103, 232, 249, 0.22);
   background:
-    linear-gradient(135deg, rgba(11, 29, 49, 0.96), rgba(6, 13, 24, 0.96)),
+    radial-gradient(circle at 88% 48%, rgba(34, 211, 238, 0.09), transparent 24%),
+    linear-gradient(135deg, rgba(10, 31, 53, 0.97), rgba(5, 13, 25, 0.98)),
     #08101d;
   box-shadow:
-    0 30px 90px rgba(0, 0, 0, 0.25),
-    inset 0 1px rgba(255, 255, 255, 0.035);
+    0 32px 100px rgba(0, 0, 0, 0.3),
+    0 0 55px rgba(8, 145, 178, 0.055),
+    inset 0 1px rgba(255, 255, 255, 0.045);
+  isolation: isolate;
 }
 
-.contact-panel::before {
+.contact-panel::after {
   position: absolute;
   inset: 0;
-  background-image:
-    linear-gradient(rgba(148, 163, 184, 0.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(148, 163, 184, 0.035) 1px, transparent 1px);
-  background-size: 38px 38px;
+  border-radius: inherit;
+  box-shadow: inset 0 0 45px rgba(14, 165, 233, 0.04);
   content: "";
-  mask-image: linear-gradient(90deg, black, transparent 75%);
+  pointer-events: none;
+}
+
+.contact-grid,
+.contact-scan,
+.contact-edge-light {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.contact-grid {
+  background-image:
+    linear-gradient(rgba(103, 232, 249, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(103, 232, 249, 0.04) 1px, transparent 1px);
+  background-size: 32px 32px;
+  mask-image: linear-gradient(90deg, black, rgba(0, 0, 0, 0.45) 58%, transparent 90%);
+}
+
+.contact-scan {
+  z-index: 1;
+  width: 24%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(103, 232, 249, 0.025),
+    rgba(103, 232, 249, 0.075),
+    transparent
+  );
+  filter: blur(1px);
+  transform: skewX(-14deg);
+  animation: contact-scan 8s ease-in-out infinite;
+}
+
+.contact-edge-light {
+  z-index: 2;
+  border-radius: inherit;
+  background:
+    linear-gradient(90deg, transparent 10%, rgba(103, 232, 249, 0.7), transparent 90%)
+      top / 42% 1px no-repeat,
+    linear-gradient(90deg, transparent 15%, rgba(59, 130, 246, 0.45), transparent 85%)
+      bottom / 32% 1px no-repeat;
+  animation: contact-edge-travel 7s ease-in-out infinite alternate;
+}
+
+.contact-corner {
+  position: absolute;
+  z-index: 8;
+  width: 22px;
+  height: 22px;
+  border-color: rgba(103, 232, 249, 0.6);
+  filter: drop-shadow(0 0 5px rgba(34, 211, 238, 0.4));
+}
+
+.contact-corner-tl {
+  top: 12px;
+  left: 12px;
+  border-top: 1px solid;
+  border-left: 1px solid;
+}
+
+.contact-corner-tr {
+  top: 12px;
+  right: 12px;
+  border-top: 1px solid;
+  border-right: 1px solid;
+}
+
+.contact-corner-bl {
+  bottom: 12px;
+  left: 12px;
+  border-bottom: 1px solid;
+  border-left: 1px solid;
+}
+
+.contact-corner-br {
+  right: 12px;
+  bottom: 12px;
+  border-right: 1px solid;
+  border-bottom: 1px solid;
+}
+
+.contact-availability {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  border: 1px solid rgba(74, 222, 128, 0.14);
+  border-radius: 999px;
+  background: rgba(74, 222, 128, 0.035);
+  padding: 0.25rem 0.55rem;
+  font-family: var(--font-mono-stack);
+  font-size: 0.48rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(167, 243, 208, 0.65);
+}
+
+.contact-availability-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #4ade80;
+  box-shadow:
+    0 0 5px #4ade80,
+    0 0 11px rgba(74, 222, 128, 0.55);
+  animation: contact-status 2.4s ease-in-out infinite;
+}
+
+.contact-orbit {
+  position: absolute;
+  z-index: 3;
+  top: 50%;
+  right: 7%;
+  width: 220px;
+  height: 150px;
+  opacity: 0.55;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.contact-orbit-ring,
+.contact-orbit-core,
+.contact-orbit-node {
+  position: absolute;
+  display: block;
+}
+
+.contact-orbit-ring {
+  top: 50%;
+  left: 50%;
+  border: 1px solid rgba(103, 232, 249, 0.26);
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(34, 211, 238, 0.09);
+}
+
+.contact-orbit-ring-one {
+  width: 205px;
+  height: 58px;
+  transform: translate(-50%, -50%) rotate(-11deg);
+  animation: contact-orbit-pulse 4s ease-in-out infinite;
+}
+
+.contact-orbit-ring-two {
+  width: 155px;
+  height: 88px;
+  border-style: dashed;
+  transform: translate(-50%, -50%) rotate(18deg);
+  animation: contact-orbit-pulse 4.8s ease-in-out -1.5s infinite;
+}
+
+.contact-orbit-core {
+  top: 50%;
+  left: 50%;
+  display: flex;
+  width: 48px;
+  height: 48px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(103, 232, 249, 0.42);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(34, 211, 238, 0.13), rgba(3, 15, 29, 0.8));
+  box-shadow:
+    0 0 22px rgba(34, 211, 238, 0.13),
+    inset 0 0 16px rgba(34, 211, 238, 0.09);
+  transform: translate(-50%, -50%);
+}
+
+.contact-orbit-core span {
+  font-family: var(--font-mono-stack);
+  font-size: 0.55rem;
+  letter-spacing: 0.12em;
+  color: rgba(207, 250, 254, 0.75);
+}
+
+.contact-orbit-node {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #cffafe;
+  box-shadow:
+    0 0 6px #67e8f9,
+    0 0 14px #0ea5e9;
+}
+
+.contact-orbit-node-one {
+  top: 43%;
+  left: 7%;
+  animation: contact-node-one 4s ease-in-out infinite;
+}
+
+.contact-orbit-node-two {
+  right: 8%;
+  bottom: 37%;
+  width: 3px;
+  height: 3px;
+  animation: contact-node-two 4.8s ease-in-out infinite;
+}
+
+.contact-actions {
+  position: relative;
+  z-index: 5;
+}
+
+.contact-actions .button-primary {
+  position: relative;
+  overflow: hidden;
+  min-width: 132px;
+  box-shadow:
+    0 12px 36px rgba(34, 211, 238, 0.2),
+    0 0 0 rgba(34, 211, 238, 0);
+  animation: contact-cta-breathe 3.5s ease-in-out infinite;
+}
+
+.contact-actions .button-primary::before {
+  position: absolute;
+  top: -80%;
+  left: -45%;
+  width: 34%;
+  height: 260%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.7), transparent);
+  content: "";
+  transform: rotate(18deg);
+  transition: left 550ms ease;
+}
+
+.contact-actions .button-primary:hover {
+  box-shadow:
+    0 15px 42px rgba(34, 211, 238, 0.32),
+    0 0 28px rgba(34, 211, 238, 0.12);
+  transform: translateY(-2px) scale(1.015);
+}
+
+.contact-actions .button-primary:hover::before {
+  left: 115%;
+}
+
+.contact-actions .button-secondary {
+  backdrop-filter: blur(8px);
+}
+
+@keyframes contact-scan {
+  0%,
+  12% {
+    left: -35%;
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+  }
+  70%,
+  100% {
+    left: 115%;
+    opacity: 0;
+  }
+}
+
+@keyframes contact-edge-travel {
+  from {
+    background-position:
+      -30% 0,
+      120% 100%;
+  }
+  to {
+    background-position:
+      130% 0,
+      -25% 100%;
+  }
+}
+
+@keyframes contact-status {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.12);
+  }
+}
+
+@keyframes contact-orbit-pulse {
+  0%,
+  100% {
+    opacity: 0.38;
+    filter: brightness(0.9);
+  }
+  50% {
+    opacity: 0.9;
+    filter: brightness(1.35);
+  }
+}
+
+@keyframes contact-node-one {
+  0%,
+  100% {
+    transform: translate(2px, 7px);
+  }
+  50% {
+    transform: translate(25px, -6px);
+  }
+}
+
+@keyframes contact-node-two {
+  0%,
+  100% {
+    transform: translate(-2px, -7px);
+  }
+  50% {
+    transform: translate(-22px, 9px);
+  }
+}
+
+@keyframes contact-cta-breathe {
+  0%,
+  100% {
+    box-shadow:
+      0 12px 36px rgba(34, 211, 238, 0.17),
+      0 0 0 rgba(34, 211, 238, 0);
+  }
+  50% {
+    box-shadow:
+      0 14px 42px rgba(34, 211, 238, 0.25),
+      0 0 24px rgba(34, 211, 238, 0.08);
+  }
 }
 
 .link-underline {
@@ -950,27 +1111,14 @@ a {
     bottom: 102px;
   }
 
-  .hologram-avatar,
-  .orbit,
-  .hologram-pedestal {
+  .hologram-portrait,
+  .orbit {
     left: 50%;
   }
 
-  .hologram-avatar {
-    width: 158px;
-    height: 158px;
-  }
-
-  .avatar-head {
-    top: 20px;
-  }
-
-  .avatar-neck {
-    top: 75px;
-  }
-
-  .avatar-shoulders {
-    bottom: -34px;
+  .hologram-portrait {
+    bottom: -2px;
+    width: 190px;
   }
 
   .orbit-outer {
@@ -986,10 +1134,6 @@ a {
   .orbit-inner {
     width: 195px;
     height: 62px;
-  }
-
-  .hologram-pedestal {
-    width: 225px;
   }
 
   .operator-metrics {
@@ -1037,6 +1181,45 @@ a {
     bottom: 20px;
     left: 18px;
   }
+
+  .contact-panel {
+    padding-top: 3.25rem;
+    padding-bottom: 3.25rem;
+  }
+
+  .contact-grid {
+    mask-image: linear-gradient(to bottom, black, rgba(0, 0, 0, 0.4) 70%, transparent);
+  }
+
+  .contact-orbit {
+    top: auto;
+    right: -44px;
+    bottom: 36px;
+    width: 160px;
+    height: 100px;
+    opacity: 0.2;
+    transform: none;
+  }
+
+  .contact-orbit-ring-one {
+    width: 150px;
+    height: 44px;
+  }
+
+  .contact-orbit-ring-two {
+    width: 112px;
+    height: 64px;
+  }
+
+  .contact-orbit-core {
+    width: 38px;
+    height: 38px;
+  }
+
+  .contact-actions .button-primary,
+  .contact-actions .button-secondary {
+    width: 100%;
+  }
 }
 
 @media (hover: none), (pointer: coarse) {
@@ -1047,6 +1230,10 @@ a {
   .hologram-grid,
   .hologram-radar,
   .hologram-stage {
+    transform: none;
+  }
+
+  .contact-actions .button-primary:hover {
     transform: none;
   }
 }
