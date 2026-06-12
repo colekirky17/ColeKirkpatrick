@@ -1,3 +1,4 @@
+import { CaseStudyModals } from "./components/case-study-modals";
 import { HologramOperatorPanel } from "./components/hologram-operator-panel";
 
 type IconName =
@@ -8,13 +9,6 @@ type IconName =
   | "play"
   | "spark"
   | "target";
-
-const metrics = [
-  { value: "6", label: "Products Launched" },
-  { value: "100K+", label: "App Downloads" },
-  { value: "$15M", label: "Revenue Supported" },
-  { value: "50+", label: "People Managed" },
-];
 
 const capabilities: {
   title: string;
@@ -44,41 +38,6 @@ const capabilities: {
     description:
       "Shaping rough concepts into useful products, thoughtful experiences, and tangible creative work.",
     icon: "code",
-  },
-];
-
-const caseStudies = [
-  {
-    title: "CourseCareers",
-    category: "Education Technology",
-    description:
-      "Scaling the systems, people, and programs behind a fast-growing career education platform.",
-    tags: ["Operations", "Programs", "Growth"],
-    number: "01",
-  },
-  {
-    title: "Hungry Bull",
-    category: "Consumer Startup",
-    description:
-      "Taking a consumer brand from an early idea to an organized, launch-ready business.",
-    tags: ["Startup", "Brand", "Execution"],
-    number: "02",
-  },
-  {
-    title: "iCard Collection",
-    category: "Digital Product",
-    description:
-      "Designing a modern product concept that makes collecting feel intuitive, social, and alive.",
-    tags: ["Product", "UX", "Strategy"],
-    number: "03",
-  },
-  {
-    title: "Signature Swings",
-    category: "Creative Project",
-    description:
-      "Building a distinct content concept at the intersection of sports, storytelling, and design.",
-    tags: ["Creative", "Media", "Build"],
-    number: "04",
   },
 ];
 
@@ -339,21 +298,6 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section-shell py-8 sm:py-10" aria-label="Proof metrics">
-        <div className="grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-white/[0.07] bg-white/[0.07] lg:grid-cols-4">
-          {metrics.map((metric) => (
-            <div className="bg-[#070c16]/95 px-5 py-6 sm:px-7" key={metric.label}>
-              <p className="text-2xl font-semibold tracking-[-0.04em] text-white sm:text-3xl">
-                {metric.value}
-              </p>
-              <p className="mt-1.5 text-xs text-slate-500 sm:text-[13px]">
-                {metric.label}
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
-
       <section className="section-shell section-space" id="about">
         <SectionHeading
           eyebrow="What I Do"
@@ -399,49 +343,7 @@ export default function Home() {
             title="Selected outcomes, not just outputs."
             description="A closer look at the strategy, systems, and execution behind a few defining projects."
           />
-          <div className="grid gap-5 md:grid-cols-2">
-            {caseStudies.map((study) => (
-              <article className="case-card group" key={study.title}>
-                <div className="case-data-field" />
-                <div className="case-data-sweep" />
-                <span className="case-corner case-corner-tl" />
-                <span className="case-corner case-corner-tr" />
-                <span className="case-corner case-corner-bl" />
-                <span className="case-corner case-corner-br" />
-                <span className="case-rail case-rail-top" />
-                <span className="case-rail case-rail-bottom" />
-
-                <div className="case-number">
-                  {study.number}
-                </div>
-                <div className="relative z-10">
-                  <div className="flex items-start justify-between gap-4">
-                    <span className="case-category">{study.category}</span>
-                    <span className="case-arrow">
-                      <ArrowIcon className="size-4 -rotate-45 transition-transform duration-300 group-hover:rotate-0" />
-                    </span>
-                  </div>
-                  <h3 className="mt-11 text-2xl font-semibold tracking-[-0.035em] text-white sm:text-[1.7rem]">
-                    {study.title}
-                  </h3>
-                  <p className="mt-3 max-w-md text-sm leading-6 text-slate-400">
-                    {study.description}
-                  </p>
-                  <div className="mt-7 flex flex-wrap gap-2">
-                    {study.tags.map((tag) => (
-                      <span className="case-tag" key={tag}>
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                  <a className="case-link mt-8" href="#">
-                    View Case Study
-                    <ArrowIcon className="size-3.5 transition-transform group-hover:translate-x-1" />
-                  </a>
-                </div>
-              </article>
-            ))}
-          </div>
+          <CaseStudyModals />
         </div>
       </section>
 
