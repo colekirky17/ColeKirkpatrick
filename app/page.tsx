@@ -1,3 +1,5 @@
+import { HologramOperatorPanel } from "./components/hologram-operator-panel";
+
 type IconName =
   | "arrow"
   | "briefcase"
@@ -300,98 +302,6 @@ function Header() {
   );
 }
 
-function OperatorDashboard() {
-  return (
-    <div className="relative mx-auto w-full max-w-[500px] lg:mr-0">
-      <div className="absolute -inset-10 rounded-full bg-cyan-400/[0.06] blur-3xl" />
-      <div className="dashboard-panel relative overflow-hidden rounded-2xl p-4 sm:p-5">
-        <div className="flex items-center justify-between border-b border-white/[0.07] pb-4">
-          <div className="flex items-center gap-3">
-            <span className="relative flex size-2.5">
-              <span className="absolute inline-flex size-full animate-ping rounded-full bg-emerald-400 opacity-50" />
-              <span className="relative inline-flex size-2.5 rounded-full bg-emerald-400" />
-            </span>
-            <div>
-              <p className="text-xs font-semibold text-white">Operator Overview</p>
-              <p className="mt-0.5 text-[10px] text-slate-500">Systems online</p>
-            </div>
-          </div>
-          <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-slate-500">
-            Live
-          </span>
-        </div>
-
-        <div className="grid grid-cols-2 gap-3 py-4">
-          <div className="rounded-xl border border-white/[0.07] bg-white/[0.025] p-4">
-            <div className="mb-5 flex items-center justify-between">
-              <span className="text-[10px] uppercase tracking-[0.14em] text-slate-500">
-                Focus
-              </span>
-              <span className="size-1.5 rounded-full bg-cyan-300 shadow-[0_0_8px_#22d3ee]" />
-            </div>
-            <p className="text-2xl font-semibold tracking-tight text-white">04</p>
-            <p className="mt-1 text-[11px] text-slate-400">Active workstreams</p>
-          </div>
-          <div className="rounded-xl border border-white/[0.07] bg-white/[0.025] p-4">
-            <div className="mb-5 flex items-center justify-between">
-              <span className="text-[10px] uppercase tracking-[0.14em] text-slate-500">
-                Velocity
-              </span>
-              <span className="font-mono text-[10px] text-emerald-400">+24%</span>
-            </div>
-            <p className="text-2xl font-semibold tracking-tight text-white">High</p>
-            <p className="mt-1 text-[11px] text-slate-400">Execution pace</p>
-          </div>
-        </div>
-
-        <div className="rounded-xl border border-white/[0.07] bg-[#070d18]/80 p-4">
-          <div className="mb-4 flex items-center justify-between">
-            <div>
-              <p className="text-xs font-medium text-slate-200">Execution pipeline</p>
-              <p className="mt-1 text-[10px] text-slate-500">
-                Idea to measurable outcome
-              </p>
-            </div>
-            <span className="rounded-full border border-cyan-300/20 bg-cyan-300/[0.06] px-2 py-1 font-mono text-[9px] text-cyan-300">
-              ON TRACK
-            </span>
-          </div>
-          <div className="space-y-3">
-            {[
-              ["Strategy", "w-[92%]", "bg-cyan-300"],
-              ["Systems", "w-[78%]", "bg-blue-400"],
-              ["Build", "w-[64%]", "bg-indigo-400"],
-            ].map(([label, width, color]) => (
-              <div className="grid grid-cols-[58px_1fr_28px] items-center gap-3" key={label}>
-                <span className="text-[10px] text-slate-400">{label}</span>
-                <span className="h-1 overflow-hidden rounded-full bg-white/[0.06]">
-                  <span
-                    className={`block h-full rounded-full ${width} ${color} shadow-[0_0_10px_currentColor]`}
-                  />
-                </span>
-                <span className="text-right font-mono text-[9px] text-slate-500">
-                  {label === "Strategy" ? "92" : label === "Systems" ? "78" : "64"}%
-                </span>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="mt-3 flex flex-wrap gap-2">
-          {["OPERATIONS", "PRODUCT", "PROGRAMS", "CREATIVE"].map((chip) => (
-            <span
-              className="rounded-md border border-white/[0.07] bg-white/[0.025] px-2.5 py-1.5 font-mono text-[9px] tracking-[0.08em] text-slate-400"
-              key={chip}
-            >
-              {chip}
-            </span>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-}
-
 export default function Home() {
   return (
     <main id="home" className="overflow-hidden">
@@ -425,7 +335,7 @@ export default function Home() {
               </Button>
             </div>
           </div>
-          <OperatorDashboard />
+          <HologramOperatorPanel />
         </div>
       </section>
 
