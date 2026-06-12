@@ -4,9 +4,9 @@ import Image from "next/image";
 import { useRef, type PointerEvent } from "react";
 
 const operatorMetrics = [
-  { label: "Systems Built", value: "20+" },
-  { label: "Teams Enabled", value: "50+" },
-  { label: "Ideas Shipped", value: "100+" },
+  { label: "Revenue Supported", value: "$15M" },
+  { label: "Products Launched", value: "6" },
+  { label: "App Downloads", value: "100K+" },
 ];
 
 export function HologramOperatorPanel() {

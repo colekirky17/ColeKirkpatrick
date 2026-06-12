@@ -10,9 +10,9 @@ type IconName =
   | "target";
 
 const metrics = [
-  { value: "20+", label: "Courses Launched" },
+  { value: "6", label: "Products Launched" },
   { value: "100K+", label: "App Downloads" },
-  { value: "$5M+", label: "Program Revenue" },
+  { value: "$15M", label: "Revenue Supported" },
   { value: "50+", label: "People Managed" },
 ];
 
@@ -362,16 +362,23 @@ export default function Home() {
         />
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {capabilities.map((capability, index) => (
-            <article className="card-surface group min-h-[250px] p-6" key={capability.title}>
-              <div className="flex items-start justify-between">
-                <span className="icon-box">
+            <article className="capability-card group" key={capability.title}>
+              <div className="capability-grid" />
+              <div className="capability-scan" />
+              <span className="capability-corner capability-corner-top" />
+              <span className="capability-corner capability-corner-bottom" />
+              <span className="capability-notch" />
+
+              <div className="relative z-10 flex items-start justify-between">
+                <span className="capability-icon">
                   <Icon name={capability.icon} />
                 </span>
-                <span className="font-mono text-[10px] text-slate-600">
+                <span className="capability-number">
                   0{index + 1}
                 </span>
               </div>
-              <div className="mt-11">
+              <div className="relative z-10 mt-9">
+                <span className="capability-signal" />
                 <h3 className="text-lg font-semibold tracking-tight text-white">
                   {capability.title}
                 </h3>
@@ -384,8 +391,9 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="border-y border-white/[0.06] bg-white/[0.012]" id="case-studies">
-        <div className="section-shell section-space">
+      <section className="case-studies-section border-y border-white/[0.06]" id="case-studies">
+        <div className="case-section-grid" />
+        <div className="section-shell section-space relative">
           <SectionHeading
             eyebrow="Featured Case Studies"
             title="Selected outcomes, not just outputs."
@@ -393,18 +401,27 @@ export default function Home() {
           />
           <div className="grid gap-5 md:grid-cols-2">
             {caseStudies.map((study) => (
-              <article className="case-card group relative overflow-hidden rounded-2xl p-6 sm:p-7" key={study.title}>
-                <div className="absolute -right-5 -top-8 font-mono text-[7rem] font-semibold tracking-[-0.08em] text-white/[0.018] transition-colors group-hover:text-cyan-300/[0.025]">
+              <article className="case-card group" key={study.title}>
+                <div className="case-data-field" />
+                <div className="case-data-sweep" />
+                <span className="case-corner case-corner-tl" />
+                <span className="case-corner case-corner-tr" />
+                <span className="case-corner case-corner-bl" />
+                <span className="case-corner case-corner-br" />
+                <span className="case-rail case-rail-top" />
+                <span className="case-rail case-rail-bottom" />
+
+                <div className="case-number">
                   {study.number}
                 </div>
-                <div className="relative">
+                <div className="relative z-10">
                   <div className="flex items-start justify-between gap-4">
-                    <span className="eyebrow">{study.category}</span>
-                    <span className="flex size-9 items-center justify-center rounded-full border border-white/[0.08] text-slate-500 transition-all duration-300 group-hover:border-cyan-300/30 group-hover:text-cyan-300">
+                    <span className="case-category">{study.category}</span>
+                    <span className="case-arrow">
                       <ArrowIcon className="size-4 -rotate-45 transition-transform duration-300 group-hover:rotate-0" />
                     </span>
                   </div>
-                  <h3 className="mt-12 text-2xl font-semibold tracking-[-0.035em] text-white sm:text-[1.7rem]">
+                  <h3 className="mt-11 text-2xl font-semibold tracking-[-0.035em] text-white sm:text-[1.7rem]">
                     {study.title}
                   </h3>
                   <p className="mt-3 max-w-md text-sm leading-6 text-slate-400">
@@ -412,12 +429,12 @@ export default function Home() {
                   </p>
                   <div className="mt-7 flex flex-wrap gap-2">
                     {study.tags.map((tag) => (
-                      <span className="tag" key={tag}>
+                      <span className="case-tag" key={tag}>
                         {tag}
                       </span>
                     ))}
                   </div>
-                  <a className="mt-8 inline-flex items-center gap-2 text-xs font-semibold text-cyan-200" href="#">
+                  <a className="case-link mt-8" href="#">
                     View Case Study
                     <ArrowIcon className="size-3.5 transition-transform group-hover:translate-x-1" />
                   </a>
