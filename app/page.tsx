@@ -1,5 +1,6 @@
 import { CaseStudyModals } from "./components/case-study-modals";
 import { HologramOperatorPanel } from "./components/hologram-operator-panel";
+import { TacticalBackground } from "./components/tactical-background";
 
 type IconName =
   | "arrow"
@@ -45,7 +46,7 @@ const roleTargets: {
   items: string[];
 }[] = [
   {
-    title: "Role Lanes",
+    title: "Target Roles",
     signal: "Position",
     items: [
       "Business Operations",
@@ -85,7 +86,7 @@ const roleTargets: {
 ];
 
 const strongestWhen = [
-  "The path is not fully defined yet",
+  "The environment is ambitious and fast-moving",
   "Multiple moving pieces need structure",
   "Founders or leadership need someone to turn ideas into action",
   "The work requires both strategy and hands-on execution",
@@ -203,79 +204,6 @@ function ArrowIcon({ className = "size-4" }: { className?: string }) {
   return <Icon name="arrow" className={className} />;
 }
 
-function HeroTacticalBackground() {
-  return (
-    <div aria-hidden="true" className="hero-tactical">
-      <div className="hero-tactical-grid" />
-      <div className="hero-tactical-scan" />
-      <div className="hero-tactical-nodes">
-        <span />
-        <span />
-        <span />
-        <span />
-        <span />
-        <span />
-      </div>
-
-      <svg
-        className="hero-tactical-map"
-        preserveAspectRatio="none"
-        viewBox="0 0 1600 760"
-      >
-        <g className="hero-map-lines">
-          <path d="M-80 145C180 190 290 300 545 248S910 105 1190 188s365 42 500-8" />
-          <path d="M-70 206C180 248 340 350 570 302S900 164 1195 235s354 35 470 8" />
-          <path d="M55 85 315 170 520 126 790 234 1050 120 1350 202 1590 145" />
-          <path d="M30 330 280 275 485 358 735 286 950 356 1240 275 1580 335" />
-          <path d="M148 72v252M492 55v345M1010 38v310M1420 64v302" />
-        </g>
-        <g className="hero-map-rings">
-          <circle cx="128" cy="260" r="58" />
-          <circle cx="128" cy="260" r="42" />
-          <circle cx="1340" cy="274" r="178" />
-          <circle cx="1340" cy="274" r="146" />
-          <circle cx="1340" cy="274" r="112" />
-          <path d="M1340 76v396M1142 274h396" />
-        </g>
-        <g className="hero-map-markers">
-          <path d="m475 214 8 14-8 14-8-14Z" />
-          <path d="m925 314 8 14-8 14-8-14Z" />
-          <path d="m151 174 7 12-7 12-7-12Z" />
-          <circle cx="1180" cy="188" r="4" />
-          <circle cx="620" cy="280" r="3" />
-        </g>
-      </svg>
-
-      <svg
-        className="hero-terrain"
-        preserveAspectRatio="none"
-        viewBox="0 0 1600 360"
-      >
-        <g className="hero-terrain-lines">
-          {Array.from({ length: 15 }, (_, index) => (
-            <path
-              d={`M-80 ${54 + index * 22} C180 ${18 + index * 24}, 315 ${
-                112 + index * 13
-              }, 540 ${68 + index * 19} S880 ${120 + index * 15}, 1080 ${
-                70 + index * 20
-              } S1430 ${30 + index * 23}, 1680 ${82 + index * 18}`}
-              key={index}
-            />
-          ))}
-          {Array.from({ length: 18 }, (_, index) => (
-            <path
-              d={`M${index * 100 - 70} 360 Q${index * 92 + 40} 165 ${
-                index * 88 + 160
-              } 0`}
-              key={`vertical-${index}`}
-            />
-          ))}
-        </g>
-      </svg>
-    </div>
-  );
-}
-
 function Button({
   children,
   href,
@@ -377,7 +305,7 @@ export default function Home() {
       <Header />
 
       <section className="hero-section relative border-b border-white/[0.06] pt-16">
-        <HeroTacticalBackground />
+        <TacticalBackground />
         <div className="absolute left-[15%] top-0 h-[420px] w-[420px] rounded-full bg-blue-600/[0.09] blur-[130px]" />
         <div className="absolute right-[8%] top-20 h-[350px] w-[350px] rounded-full bg-cyan-400/[0.07] blur-[120px]" />
 
@@ -467,11 +395,17 @@ export default function Home() {
                 Roles where I can help turn ambiguity into execution.
               </h2>
               <p className="mt-6 max-w-xl text-base leading-7 text-slate-400">
-                I&apos;m looking for business operations, program management,
-                project management, product operations, strategy &amp;
-                operations, special projects, or founder-led roles where I can
-                help build systems, coordinate teams, launch initiatives, and
-                move important work forward.
+                I&apos;m looking for an ambitious, fast-moving environment
+                where critical thinking, creativity, and ownership matter. I do
+                my best work when a team needs someone who can step into an
+                unclear situation, make sense of limited information, develop
+                practical solutions, and carry them through execution.
+              </p>
+              <p className="mt-4 max-w-xl text-base leading-7 text-slate-400">
+                I&apos;m reliable, adaptable, and team-first. I want to join an
+                organization that operates like a great sports team: aligned
+                around a clear mission, accountable to one another, willing to
+                adjust, and determined to win.
               </p>
               <div className="role-target-status">
                 <span className="role-target-status-dot" />

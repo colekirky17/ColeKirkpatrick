@@ -1607,11 +1607,58 @@ a {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(310px, 390px);
   gap: 4rem;
+  overflow: hidden;
   border-bottom: 1px solid rgba(103, 232, 249, 0.12);
   padding: 4.5rem 4.5rem 3.5rem;
+  isolation: isolate;
+}
+
+.case-modal-tactical {
+  z-index: 0;
+  opacity: 0.72;
+  mask-image: linear-gradient(to bottom, black 0%, black 82%, transparent 100%);
+}
+
+.case-modal-tactical .hero-tactical-grid {
+  opacity: 0.34;
+  background-size:
+    62px 62px,
+    62px 62px,
+    18px 18px,
+    18px 18px;
+  animation-duration: 30s;
+}
+
+.case-modal-tactical .hero-tactical-map {
+  opacity: 0.25;
+  transform: scale(1.08);
+  animation-duration: 22s;
+}
+
+.case-modal-tactical .hero-map-rings {
+  opacity: 0.75;
+  animation-duration: 52s;
+}
+
+.case-modal-tactical .hero-tactical-scan {
+  opacity: 0;
+  animation-duration: 15s;
+}
+
+.case-modal-tactical .hero-tactical-nodes {
+  opacity: 0.65;
+}
+
+.case-modal-tactical .hero-terrain {
+  bottom: -18%;
+  height: 64%;
+  opacity: 0.28;
+  animation-duration: 14s;
 }
 
 .case-modal-intro {
+  position: relative;
+  z-index: 2;
   align-self: center;
 }
 
@@ -1646,6 +1693,8 @@ a {
 }
 
 .case-modal-record {
+  position: relative;
+  z-index: 2;
   align-self: start;
   border: 1px solid rgba(103, 232, 249, 0.16);
   background:
@@ -3055,6 +3104,16 @@ a {
 }
 
 @media (max-width: 800px) {
+  .case-modal-tactical .hero-tactical-map {
+    opacity: 0.18;
+  }
+
+  .case-modal-tactical .hero-terrain {
+    bottom: -10%;
+    height: 48%;
+    opacity: 0.2;
+  }
+
   .mission-module {
     grid-template-columns: 2rem 1fr;
     gap: 0.75rem;

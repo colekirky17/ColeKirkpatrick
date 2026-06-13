@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { TacticalBackground } from "./tactical-background";
 
 type CaseStudy = {
   title: string;
@@ -522,6 +523,7 @@ export function CaseStudyModals() {
 
             <div className="case-modal-scroll">
               <header className="case-modal-header">
+                <TacticalBackground variant="modal" />
                 <div className="case-modal-intro">
                   <p className="case-modal-kicker">
                     Case Study // {selectedStudy.number}
