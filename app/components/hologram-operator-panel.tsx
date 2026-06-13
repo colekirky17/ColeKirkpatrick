@@ -73,8 +73,8 @@ export function HologramOperatorPanel() {
               </h2>
               <span className="holo-status-dot" />
             </div>
-            <p className="mt-1.5 text-[10px] text-cyan-100/65">Systems Builder</p>
-            <p className="mt-0.5 text-[10px] text-cyan-100/45">
+            <p className="mt-1.5 text-xs text-cyan-100/65">Systems Builder</p>
+            <p className="mt-0.5 text-xs text-cyan-100/45">
               Strategic Operator
             </p>
           </div>

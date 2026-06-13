@@ -35,7 +35,11 @@ const caseStudies: CaseStudy[] = [
     category: "Education Technology",
     description:
       "Scaling the systems, people, and programs behind a fast-growing career education platform.",
-    tags: ["Operations", "Programs", "Growth"],
+    tags: [
+      "Program Management",
+      "Operational Scaling",
+      "Cross-Functional Leadership",
+    ],
     number: "01",
     snapshot: {
       role: "Program Manager",
@@ -106,10 +110,10 @@ const caseStudies: CaseStudy[] = [
   },
   {
     title: "Hungry Bull",
-    category: "Consumer Startup",
+    category: "Fintech Consumer Startup",
     description:
       "Building a mobile-first stock market media product for a younger generation of investors.",
-    tags: ["Startup", "Fintech", "Product"],
+    tags: ["Startup Operations", "Product Launch", "Team Leadership"],
     number: "02",
     snapshot: {
       role: "Co-Founder / COO",
@@ -182,10 +186,14 @@ const caseStudies: CaseStudy[] = [
   },
   {
     title: "iCard Collection",
-    category: "Digital Product",
+    category: "Online Digital Service",
     description:
-      "Building a centralized platform for organizing, sharing, and trading hockey cards.",
-    tags: ["Product", "Community", "AI Build"],
+      "Building a centralized digital platform for the sports collectibles asset class.",
+    tags: [
+      "Product Strategy",
+      "Zero-to-One Build",
+      "AI-Assisted Development",
+    ],
     number: "03",
     snapshot: {
       role: "Founder",
@@ -265,7 +273,11 @@ const caseStudies: CaseStudy[] = [
     category: "Ecommerce & B2C",
     description:
       "Creating a clearer direct-to-consumer experience for customized golf products.",
-    tags: ["Ecommerce", "B2C", "AI Build"],
+    tags: [
+      "Ecommerce Strategy",
+      "Customer Experience",
+      "Go-to-Market",
+    ],
     number: "04",
     snapshot: {
       role: "B2C Strategy & Ecommerce Lead",
@@ -451,7 +463,7 @@ export function CaseStudyModals() {
                   <ArrowIcon className="size-4 -rotate-45 transition-transform duration-300 group-hover:rotate-0" />
                 </span>
               </span>
-              <span className="case-title mt-11 block text-2xl font-semibold tracking-[-0.035em] text-white sm:text-[1.7rem]">
+              <span className="case-title mt-11 block">
                 {study.title}
               </span>
               <span className="case-description mt-3 block max-w-md text-sm leading-6 text-slate-400">

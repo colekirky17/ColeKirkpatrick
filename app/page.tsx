@@ -266,7 +266,7 @@ function Header() {
           <span className="flex size-8 items-center justify-center rounded-lg border border-cyan-300/25 bg-cyan-300/[0.08] font-mono text-xs font-semibold text-cyan-300 shadow-[0_0_24px_rgba(34,211,238,0.08)]">
             CK
           </span>
-          <span className="text-sm font-semibold tracking-[-0.01em] text-white transition-colors group-hover:text-cyan-200 sm:text-[15px]">
+          <span className="text-sm font-semibold tracking-[-0.01em] text-white transition-colors group-hover:text-cyan-200 sm:text-[17px]">
             Cole Kirkpatrick
           </span>
         </a>
@@ -274,7 +274,7 @@ function Header() {
         <nav className="hidden items-center gap-7 lg:flex" aria-label="Primary navigation">
           {navItems.map(([label, href]) => (
             <a
-              className="text-[13px] font-medium text-slate-400 transition-colors hover:text-white"
+              className="text-[15px] font-medium text-slate-400 transition-colors hover:text-white"
               href={href}
               key={label}
             >
@@ -309,7 +309,7 @@ export default function Home() {
           <div>
             <div className="mb-6 inline-flex items-center gap-2.5 rounded-full border border-cyan-300/20 bg-cyan-300/[0.05] px-3 py-1.5">
               <span className="size-1.5 rounded-full bg-cyan-300 shadow-[0_0_9px_#22d3ee]" />
-              <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-cyan-200">
+              <span className="font-mono text-xs uppercase tracking-[0.16em] text-cyan-200">
                 Operator · Builder · Creative
               </span>
             </div>
@@ -465,17 +465,17 @@ export default function Home() {
                   <span className="size-[5px] rounded-full bg-cyan-300 shadow-[0_0_8px_#22d3ee]" />
                 </span>
                 <div>
-                  <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-slate-600">
+                  <p className="font-mono text-xs uppercase tracking-[0.14em] text-slate-600">
                     {item.period} · 0{index + 1}
                   </p>
                   <h3 className="mt-2 text-lg font-semibold tracking-tight text-white">
                     {item.company}
                   </h3>
-                  <p className="mt-1 text-xs text-slate-500">{item.location}</p>
+                  <p className="mt-1 text-sm text-slate-500">{item.location}</p>
                 </div>
                 <div className="md:pt-0.5">
                   <p className="text-sm font-medium text-cyan-200">{item.role}</p>
-                  <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.1em] text-slate-600">
+                  <p className="mt-1 font-mono text-xs uppercase tracking-[0.1em] text-slate-600">
                     {item.dates}
                   </p>
                   <ul className="mt-4 grid max-w-4xl gap-2.5">

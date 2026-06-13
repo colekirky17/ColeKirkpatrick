@@ -12,6 +12,14 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-sans-stack);
   --font-mono: var(--font-mono-stack);
+  --text-xs: 0.875rem;
+  --text-xs--line-height: 1.25rem;
+  --text-sm: 1rem;
+  --text-sm--line-height: 1.5rem;
+  --text-base: 1.125rem;
+  --text-base--line-height: 1.75rem;
+  --text-lg: 1.25rem;
+  --text-lg--line-height: 1.875rem;
 }
 
 * {
@@ -67,7 +75,7 @@ a {
 
 .eyebrow {
   font-family: var(--font-mono-stack);
-  font-size: 0.625rem;
+  font-size: 0.71875rem;
   font-weight: 600;
   line-height: 1rem;
   letter-spacing: 0.17em;
@@ -84,7 +92,7 @@ a {
   gap: 0.65rem;
   border-radius: 0.7rem;
   padding: 0.75rem 1.15rem;
-  font-size: 0.8125rem;
+  font-size: 0.9375rem;
   font-weight: 650;
   transition:
     border-color 200ms ease,
@@ -280,7 +288,7 @@ a {
 
 .hud-label {
   font-family: var(--font-mono-stack);
-  font-size: 0.5rem;
+  font-size: 0.6rem;
   line-height: 0.75rem;
   letter-spacing: 0.13em;
   text-transform: uppercase;
@@ -489,7 +497,7 @@ a {
 
 .operator-metric p {
   font-family: var(--font-mono-stack);
-  font-size: 0.43rem;
+  font-size: 0.5rem;
   line-height: 0.7rem;
   letter-spacing: 0.09em;
   text-transform: uppercase;
@@ -500,7 +508,7 @@ a {
   display: block;
   margin-top: 2px;
   font-family: var(--font-mono-stack);
-  font-size: 0.9rem;
+  font-size: 1rem;
   font-weight: 500;
   color: rgba(236, 254, 255, 0.92);
 }
@@ -550,7 +558,7 @@ a {
 .operator-focus p:not(.hud-label) {
   margin-top: 4px;
   font-family: var(--font-mono-stack);
-  font-size: 0.48rem;
+  font-size: 0.5625rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: rgba(125, 211, 252, 0.55);
@@ -564,7 +572,7 @@ a {
   align-items: center;
   gap: 9px;
   font-family: var(--font-mono-stack);
-  font-size: 0.43rem;
+  font-size: 0.5rem;
   letter-spacing: 0.12em;
   color: rgba(103, 232, 249, 0.42);
 }
@@ -703,7 +711,7 @@ a {
 .case-card {
   position: relative;
   width: 100%;
-  min-height: 340px;
+  min-height: 410px;
   overflow: hidden;
   border: 1px solid rgba(56, 189, 248, 0.34);
   background:
@@ -979,7 +987,7 @@ a {
   border-left: 1px solid rgba(103, 232, 249, 0.45);
   padding: 0.25rem 0.65rem;
   font-family: var(--font-mono-stack);
-  font-size: 0.625rem;
+  font-size: 0.71875rem;
   font-weight: 600;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -1036,6 +1044,15 @@ a {
   transform: translateY(-2px) scale(1.04);
 }
 
+.case-title {
+  max-width: calc(100% - 4rem);
+  font-size: clamp(2.25rem, 4vw, 3rem);
+  font-weight: 650;
+  line-height: 1;
+  letter-spacing: -0.055em;
+  color: #fff;
+}
+
 .case-title,
 .case-description {
   transition:
@@ -1058,9 +1075,8 @@ a {
   background: rgba(8, 47, 73, 0.16);
   padding: 0.38rem 0.72rem;
   font-family: var(--font-mono-stack);
-  font-size: 0.5625rem;
-  letter-spacing: 0.09em;
-  text-transform: uppercase;
+  font-size: 0.65rem;
+  letter-spacing: 0.025em;
   color: rgba(186, 230, 253, 0.68);
   transition:
     border-color 240ms ease,
@@ -1083,7 +1099,7 @@ a {
   align-items: center;
   gap: 0.65rem;
   padding-bottom: 0.35rem;
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   font-weight: 650;
   color: #a5f3fc;
 }
@@ -1299,7 +1315,7 @@ a {
   background: rgba(3, 15, 28, 0.86);
   padding: 0 1.5rem;
   font-family: var(--font-mono-stack);
-  font-size: 0.55rem;
+  font-size: 0.625rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: rgba(165, 243, 252, 0.58);
@@ -1382,7 +1398,7 @@ a {
 .case-modal-kicker,
 .case-modal-section-label {
   font-family: var(--font-mono-stack);
-  font-size: 0.58rem;
+  font-size: 0.67rem;
   font-weight: 600;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -1392,7 +1408,7 @@ a {
 .case-modal-category {
   margin-top: 0.75rem;
   font-family: var(--font-mono-stack);
-  font-size: 0.68rem;
+  font-size: 0.78rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: rgba(186, 230, 253, 0.5);
@@ -1408,7 +1424,7 @@ a {
   background-size: 22px 22px;
   padding: 1.15rem 1.25rem 1.25rem;
   font-family: var(--font-mono-stack);
-  font-size: 0.5rem;
+  font-size: 0.6rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: rgba(103, 232, 249, 0.45);
@@ -1461,7 +1477,7 @@ a {
   background: rgba(8, 47, 73, 0.18);
   padding: 0.38rem 0.7rem;
   font-family: var(--font-mono-stack);
-  font-size: 0.52rem;
+  font-size: 0.6rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: rgba(186, 230, 253, 0.72);
@@ -1484,7 +1500,7 @@ a {
 
 .case-modal-detail span {
   font-family: var(--font-mono-stack);
-  font-size: 0.48rem;
+  font-size: 0.5625rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: rgba(103, 232, 249, 0.45);
@@ -1492,7 +1508,7 @@ a {
 
 .case-modal-record .case-modal-detail strong {
   font-family: var(--font-sans-stack);
-  font-size: 0.72rem;
+  font-size: 0.83rem;
   font-weight: 500;
   line-height: 1.5;
   letter-spacing: 0;
@@ -1516,7 +1532,7 @@ a {
 .case-modal-section-number {
   padding-top: 0.15rem;
   font-family: var(--font-mono-stack);
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   color: rgba(103, 232, 249, 0.35);
 }
 
@@ -1532,7 +1548,7 @@ a {
 .case-modal-section h3,
 .case-modal-outcomes h3 {
   margin-top: 0.6rem;
-  font-size: 1.3rem;
+  font-size: 1.45rem;
   font-weight: 600;
   letter-spacing: -0.025em;
   color: white;
@@ -1541,7 +1557,7 @@ a {
 .case-modal-section p:last-child {
   margin-top: 0.8rem;
   max-width: 860px;
-  font-size: 0.9rem;
+  font-size: 1rem;
   line-height: 1.75;
   color: #94a3b8;
 }
@@ -1558,7 +1574,7 @@ a {
 .case-modal-list li {
   position: relative;
   padding-left: 1.2rem;
-  font-size: 0.88rem;
+  font-size: 1rem;
   line-height: 1.7;
   color: #94a3b8;
 }
@@ -1603,7 +1619,7 @@ a {
   top: 0.75rem;
   right: 0.75rem;
   font-family: var(--font-mono-stack);
-  font-size: 0.5rem;
+  font-size: 0.6rem;
   color: rgba(103, 232, 249, 0.35);
 }
 
@@ -1611,14 +1627,14 @@ a {
   display: block;
   margin-top: 1.8rem;
   font-family: var(--font-mono-stack);
-  font-size: 0.9rem;
+  font-size: 1rem;
   font-weight: 500;
   color: #cffafe;
 }
 
 .case-modal-outcome p {
   margin-top: 0.55rem;
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   color: #64748b;
 }
 
@@ -1660,7 +1676,7 @@ a {
     #67e8f9;
   padding: 0.62rem 0.85rem;
   font-family: var(--font-mono-stack);
-  font-size: 0.56rem;
+  font-size: 0.65rem;
   font-weight: 700;
   letter-spacing: 0.075em;
   text-transform: uppercase;
@@ -1719,7 +1735,7 @@ a {
   justify-content: center;
   gap: 0.75rem;
   font-family: var(--font-mono-stack);
-  font-size: 0.58rem;
+  font-size: 0.67rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: rgba(103, 232, 249, 0.48);
@@ -1742,7 +1758,7 @@ a {
   background: transparent;
   padding: 0.5rem 0;
   font-family: var(--font-mono-stack);
-  font-size: 0.58rem;
+  font-size: 0.67rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: rgba(165, 243, 252, 0.7);
@@ -1762,7 +1778,7 @@ a {
 
 .case-modal-footer > span {
   font-family: var(--font-mono-stack);
-  font-size: 0.52rem;
+  font-size: 0.6rem;
   letter-spacing: 0.12em;
   color: rgba(103, 232, 249, 0.38);
 }
@@ -1817,7 +1833,7 @@ a {
 
 .capability-card {
   position: relative;
-  min-height: 290px;
+  min-height: 380px;
   overflow: hidden;
   border: 1px solid rgba(56, 189, 248, 0.36);
   background:
@@ -2028,7 +2044,7 @@ a {
 
 .capability-number {
   font-family: var(--font-mono-stack);
-  font-size: 1rem;
+  font-size: 1.1rem;
   line-height: 1;
   letter-spacing: 0.06em;
   color: rgba(103, 232, 249, 0.78);
@@ -2143,7 +2159,7 @@ a {
   gap: 0.65rem;
   margin-top: 2rem;
   font-family: var(--font-mono-stack);
-  font-size: 0.625rem;
+  font-size: 0.71875rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: rgba(165, 243, 252, 0.72);
@@ -2233,7 +2249,7 @@ a {
   border-bottom: 1px solid rgba(103, 232, 249, 0.12);
   padding: 1rem 1.4rem;
   font-family: var(--font-mono-stack);
-  font-size: 0.5625rem;
+  font-size: 0.65rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
   color: rgba(125, 211, 252, 0.62);
@@ -2270,7 +2286,7 @@ a {
 
 .mission-module-index {
   font-family: var(--font-mono-stack);
-  font-size: 0.6875rem;
+  font-size: 0.8rem;
   color: rgba(103, 232, 249, 0.65);
   transition:
     color 300ms ease,
@@ -2284,7 +2300,7 @@ a {
 
 .mission-module-copy p {
   font-family: var(--font-mono-stack);
-  font-size: 0.5rem;
+  font-size: 0.6rem;
   letter-spacing: 0.13em;
   text-transform: uppercase;
   color: #64748b;
@@ -2292,7 +2308,7 @@ a {
 
 .mission-module-copy h3 {
   margin-top: 0.3rem;
-  font-size: 0.9375rem;
+  font-size: 1.0625rem;
   font-weight: 600;
   letter-spacing: -0.02em;
   color: #f8fafc;
@@ -2309,7 +2325,7 @@ a {
   border-radius: 999px;
   background: rgba(8, 47, 73, 0.18);
   padding: 0.34rem 0.6rem;
-  font-size: 0.625rem;
+  font-size: 0.71875rem;
   line-height: 1;
   color: rgba(186, 230, 253, 0.72);
   transition:
@@ -2344,7 +2360,7 @@ a {
   justify-content: space-between;
   gap: 1rem;
   font-family: var(--font-mono-stack);
-  font-size: 0.5625rem;
+  font-size: 0.65rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: #67e8f9;
@@ -2365,7 +2381,7 @@ a {
   display: flex;
   gap: 0.75rem;
   align-items: flex-start;
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   line-height: 1.25rem;
   color: #94a3b8;
 }
@@ -2373,7 +2389,7 @@ a {
 .mission-strengths li > span {
   padding-top: 0.05rem;
   font-family: var(--font-mono-stack);
-  font-size: 0.5625rem;
+  font-size: 0.65rem;
   color: rgba(103, 232, 249, 0.72);
 }
 
@@ -2526,7 +2542,7 @@ a {
   background: rgba(74, 222, 128, 0.035);
   padding: 0.25rem 0.55rem;
   font-family: var(--font-mono-stack);
-  font-size: 0.48rem;
+  font-size: 0.5625rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: rgba(167, 243, 208, 0.65);
@@ -2604,7 +2620,7 @@ a {
 
 .contact-orbit-core span {
   font-family: var(--font-mono-stack);
-  font-size: 0.55rem;
+  font-size: 0.625rem;
   letter-spacing: 0.12em;
   color: rgba(207, 250, 254, 0.75);
 }
@@ -2963,12 +2979,12 @@ a {
   }
 
   .operator-metric p {
-    font-size: 0.37rem;
+    font-size: 0.45rem;
     letter-spacing: 0.04em;
   }
 
   .operator-metric strong {
-    font-size: 0.76rem;
+    font-size: 0.875rem;
   }
 
   .operator-metric-notch,
@@ -3022,11 +3038,11 @@ a {
   }
 
   .capability-card {
-    min-height: 270px;
+    min-height: 340px;
   }
 
   .case-card {
-    min-height: 330px;
+    min-height: 390px;
     padding: 1.5rem;
   }
 
@@ -3088,7 +3104,7 @@ a {
   }
 
   .case-modal-record .case-modal-detail strong {
-    font-size: 0.78rem;
+    font-size: 0.9rem;
   }
 
   .case-modal-snapshot > .case-modal-section-label {
@@ -3102,7 +3118,7 @@ a {
 
   .case-modal-section h3,
   .case-modal-outcomes h3 {
-    font-size: 1.15rem;
+    font-size: 1.3rem;
   }
 
   .case-modal-outcome-grid {
