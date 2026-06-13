@@ -88,7 +88,7 @@ const caseStudies: CaseStudy[] = [
     outcomes: [
       { value: "20+", label: "Courses launched or optimized" },
       { value: "50+", label: "Tutors and coaches supported" },
-      { value: "Millions", label: "Education product revenue supported" },
+      { value: "$7.5 Million", label: "Education product revenue supported" },
     ],
     outcomeTitle: "Stronger programs, economics, and execution.",
     outcomeDetails: [
@@ -198,7 +198,7 @@ const caseStudies: CaseStudy[] = [
     number: "03",
     snapshot: {
       role: "Founder",
-      team: "Founder-led · community and creator partners",
+      team: "Solo-Entrepreneur Venture",
       scope: "Product, brand, community, marketing, and development",
     },
     sections: [
@@ -327,8 +327,11 @@ const caseStudies: CaseStudy[] = [
     ],
     outcomes: [
       { value: "Custom", label: "Ecommerce experience built" },
-      { value: "B2C", label: "Sales generated before full launch" },
-      { value: "↑", label: "Revenue above prior baseline" },
+      { value: "B2C Sales Activated", label: "Sales generated before full launch" },
+      {
+        value: "Product Line Developed",
+        label: "Restructured and defined the B2C product offering",
+      },
     ],
     outcomeTitle: "A stronger foundation for direct-to-consumer growth.",
     outcomeDetails: [
