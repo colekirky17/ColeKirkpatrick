@@ -13,6 +13,7 @@ export function TacticalBackground({
       }`}
     >
       <div className="hero-tactical-grid" />
+      <div className="hero-tactical-horizon" />
       <div className="hero-tactical-scan" />
       <div className="hero-tactical-nodes">
         <span />
@@ -77,7 +78,23 @@ export function TacticalBackground({
             />
           ))}
         </g>
+        <g className="hero-terrain-routes">
+          <path d="M-40 282C225 250 342 305 565 246S906 176 1110 228s335 18 530-46" />
+          <path d="M120 330C340 260 515 306 710 232S1060 130 1275 190s270 38 390 6" />
+          <path d="M365 350C510 260 670 280 815 222s260-118 420-82 244 44 360 10" />
+        </g>
       </svg>
+
+      <div className="hero-tactical-readout hero-tactical-readout-left">
+        <span>SYS // 04</span>
+        <i />
+        <span>MAP ACTIVE</span>
+      </div>
+      <div className="hero-tactical-readout hero-tactical-readout-right">
+        <span>NODE 17</span>
+        <i />
+        <span>SYNC</span>
+      </div>
     </div>
   );
 }

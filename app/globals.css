@@ -74,8 +74,9 @@ a {
   pointer-events: none;
 }
 
-/* Adjust these opacities and animation durations to tune background intensity. */
+/* Hero tactical intensity: tune opacity and duration values in this block. */
 .hero-tactical-grid,
+.hero-tactical-horizon,
 .hero-tactical-scan,
 .hero-tactical-map,
 .hero-terrain,
@@ -87,19 +88,46 @@ a {
 .hero-tactical-grid {
   inset: -8% -6%;
   background-image:
-    linear-gradient(rgba(56, 189, 248, 0.055) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(56, 189, 248, 0.055) 1px, transparent 1px),
-    linear-gradient(rgba(59, 130, 246, 0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(59, 130, 246, 0.025) 1px, transparent 1px);
+    linear-gradient(rgba(56, 189, 248, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(56, 189, 248, 0.06) 1px, transparent 1px),
+    linear-gradient(rgba(59, 130, 246, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(59, 130, 246, 0.03) 1px, transparent 1px);
   background-size:
     74px 74px,
     74px 74px,
     18px 18px,
     18px 18px;
   mask-image: linear-gradient(to bottom, black 0%, rgba(0, 0, 0, 0.9) 64%, transparent 98%);
-  opacity: 0.52;
+  opacity: 0.62;
   transform: perspective(900px) rotateX(4deg) scale(1.04);
-  animation: hero-grid-drift 24s linear infinite;
+  will-change: transform;
+  animation: hero-grid-drift 18s linear infinite;
+}
+
+.hero-tactical-horizon {
+  z-index: 1;
+  top: 39%;
+  bottom: auto;
+  height: 34%;
+  background:
+    linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(14, 165, 233, 0.12) 22%,
+      rgba(103, 232, 249, 0.34) 50%,
+      rgba(14, 165, 233, 0.12) 78%,
+      transparent 100%
+    )
+    center top / 100% 1px no-repeat,
+    radial-gradient(
+      ellipse at 50% 0%,
+      rgba(14, 165, 233, 0.2),
+      rgba(8, 47, 73, 0.07) 35%,
+      transparent 70%
+    );
+  opacity: 0.68;
+  transform: translateZ(0) scaleX(1.02);
+  animation: hero-horizon-pulse 6s ease-in-out infinite;
 }
 
 .hero-tactical-scan {
@@ -115,15 +143,17 @@ a {
   );
   filter: blur(2px);
   opacity: 0;
-  transform: skewX(-13deg);
-  animation: hero-tactical-scan 12s ease-in-out infinite;
+  transform: translate3d(0, 0, 0) skewX(-13deg);
+  will-change: transform, opacity;
+  animation: hero-tactical-scan 9s ease-in-out infinite;
 }
 
 .hero-tactical-map {
   width: 100%;
   height: 100%;
-  opacity: 0.38;
-  animation: hero-map-float 18s ease-in-out infinite alternate;
+  opacity: 0.48;
+  will-change: transform;
+  animation: hero-map-float 14s ease-in-out infinite alternate;
 }
 
 .hero-map-lines,
@@ -136,11 +166,13 @@ a {
 }
 
 .hero-map-lines {
+  stroke: rgba(56, 189, 248, 0.34);
   stroke-dasharray: 2 9;
+  animation: hero-route-dash 24s linear infinite;
 }
 
 .hero-map-rings {
-  stroke: rgba(103, 232, 249, 0.24);
+  stroke: rgba(103, 232, 249, 0.32);
   stroke-dasharray: 3 7;
   transform-origin: 1340px 274px;
   animation: hero-radar-turn 40s linear infinite;
@@ -166,8 +198,8 @@ a {
   box-shadow:
     0 0 6px rgba(103, 232, 249, 0.9),
     0 0 16px rgba(14, 165, 233, 0.55);
-  opacity: 0.4;
-  animation: hero-node-pulse 5s ease-in-out infinite;
+  opacity: 0.55;
+  animation: hero-node-pulse 4s ease-in-out infinite;
 }
 
 .hero-tactical-nodes span:nth-child(1) {
@@ -210,44 +242,101 @@ a {
   top: auto;
   bottom: -4%;
   width: 100%;
-  height: 54%;
-  opacity: 0.42;
-  mask-image: linear-gradient(to bottom, transparent 0%, black 26%, black 78%, transparent 100%);
-  transform: perspective(540px) rotateX(57deg) scaleX(1.12);
+  height: 78%;
+  opacity: 0.52;
+  mask-image: linear-gradient(to bottom, transparent 0%, black 14%, black 84%, transparent 100%);
+  transform: perspective(760px) rotateX(42deg) scaleX(1.16);
   transform-origin: center bottom;
-  animation: hero-terrain-breathe 11s ease-in-out infinite alternate;
+  will-change: transform;
+  animation: hero-terrain-breathe 8s ease-in-out infinite alternate;
 }
 
 .hero-terrain-lines {
   fill: none;
-  stroke: rgba(56, 189, 248, 0.24);
+  stroke: rgba(56, 189, 248, 0.31);
   stroke-width: 0.8;
   vector-effect: non-scaling-stroke;
 }
 
+.hero-terrain-routes {
+  fill: none;
+  stroke: rgba(103, 232, 249, 0.72);
+  stroke-width: 1.25;
+  stroke-dasharray: 12 20;
+  vector-effect: non-scaling-stroke;
+  animation: hero-route-dash 9s linear infinite;
+}
+
+.hero-tactical-readout {
+  position: absolute;
+  z-index: 3;
+  bottom: 9%;
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-family: var(--font-mono-stack);
+  font-size: 0.55rem;
+  letter-spacing: 0.16em;
+  color: rgba(103, 232, 249, 0.42);
+  opacity: 0.72;
+  animation: hero-readout-pulse 5s ease-in-out infinite;
+}
+
+.hero-tactical-readout i {
+  width: 3rem;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(103, 232, 249, 0.12), rgba(103, 232, 249, 0.62));
+}
+
+.hero-tactical-readout-left {
+  left: 3%;
+}
+
+.hero-tactical-readout-right {
+  right: 3%;
+  animation-delay: -2.5s;
+}
+
 @keyframes hero-grid-drift {
+  from {
+    transform: perspective(900px) rotateX(4deg) translate3d(-1.5%, -1%, 0) scale(1.04);
+  }
   to {
-    background-position:
-      74px 37px,
-      74px 37px,
-      18px 9px,
-      18px 9px;
+    transform: perspective(900px) rotateX(4deg) translate3d(1.5%, 1%, 0) scale(1.06);
+  }
+}
+
+@keyframes hero-horizon-pulse {
+  0%,
+  100% {
+    opacity: 0.5;
+    transform: translateZ(0) scaleX(0.98);
+  }
+  50% {
+    opacity: 0.82;
+    transform: translateZ(0) scaleX(1.04);
   }
 }
 
 @keyframes hero-tactical-scan {
   0%,
   15% {
-    left: -35%;
     opacity: 0;
+    transform: translate3d(0, 0, 0) skewX(-13deg);
   }
   28% {
-    opacity: 0.75;
+    opacity: 0.9;
   }
   72%,
   100% {
-    left: 118%;
     opacity: 0;
+    transform: translate3d(550%, 0, 0) skewX(-13deg);
+  }
+}
+
+@keyframes hero-route-dash {
+  to {
+    stroke-dashoffset: -64;
   }
 }
 
@@ -290,10 +379,29 @@ a {
 
 @keyframes hero-terrain-breathe {
   from {
-    transform: perspective(540px) rotateX(57deg) translateY(5px) scaleX(1.12);
+    transform: perspective(760px) rotateX(42deg) translate3d(0, 4px, 0) scaleX(1.16);
   }
   to {
-    transform: perspective(540px) rotateX(57deg) translateY(-8px) scaleX(1.14);
+    transform: perspective(760px) rotateX(42deg) translate3d(0, -4px, 0) scaleX(1.19);
+  }
+}
+
+@keyframes hero-terrain-modal-breathe {
+  from {
+    transform: perspective(620px) rotateX(56deg) translate3d(0, 4px, 0) scaleX(1.12);
+  }
+  to {
+    transform: perspective(620px) rotateX(56deg) translate3d(0, -5px, 0) scaleX(1.14);
+  }
+}
+
+@keyframes hero-readout-pulse {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 0.8;
   }
 }
 
@@ -1629,6 +1737,12 @@ a {
   animation-duration: 30s;
 }
 
+.case-modal-tactical .hero-tactical-horizon {
+  top: 48%;
+  opacity: 0.32;
+  animation-duration: 9s;
+}
+
 .case-modal-tactical .hero-tactical-map {
   opacity: 0.25;
   transform: scale(1.08);
@@ -1653,7 +1767,17 @@ a {
   bottom: -18%;
   height: 64%;
   opacity: 0.28;
+  animation-name: hero-terrain-modal-breathe;
   animation-duration: 14s;
+}
+
+.case-modal-tactical .hero-terrain-routes {
+  opacity: 0.42;
+  animation-duration: 14s;
+}
+
+.case-modal-tactical .hero-tactical-readout {
+  display: none;
 }
 
 .case-modal-intro {
@@ -3187,6 +3311,10 @@ a {
   }
 
   .hero-tactical-nodes span:nth-child(even) {
+    display: none;
+  }
+
+  .hero-tactical-readout {
     display: none;
   }
 
