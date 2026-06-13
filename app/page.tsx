@@ -91,6 +91,9 @@ const strongestWhen = [
   "The work requires both strategy and hands-on execution",
 ];
 
+// Replace this value with Cole's public LinkedIn profile URL when ready.
+const LINKEDIN_URL = "LINKEDIN_URL_HERE";
+
 const experience = [
   {
     company: "CourseCareers",
@@ -200,6 +203,79 @@ function ArrowIcon({ className = "size-4" }: { className?: string }) {
   return <Icon name="arrow" className={className} />;
 }
 
+function HeroTacticalBackground() {
+  return (
+    <div aria-hidden="true" className="hero-tactical">
+      <div className="hero-tactical-grid" />
+      <div className="hero-tactical-scan" />
+      <div className="hero-tactical-nodes">
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+      </div>
+
+      <svg
+        className="hero-tactical-map"
+        preserveAspectRatio="none"
+        viewBox="0 0 1600 760"
+      >
+        <g className="hero-map-lines">
+          <path d="M-80 145C180 190 290 300 545 248S910 105 1190 188s365 42 500-8" />
+          <path d="M-70 206C180 248 340 350 570 302S900 164 1195 235s354 35 470 8" />
+          <path d="M55 85 315 170 520 126 790 234 1050 120 1350 202 1590 145" />
+          <path d="M30 330 280 275 485 358 735 286 950 356 1240 275 1580 335" />
+          <path d="M148 72v252M492 55v345M1010 38v310M1420 64v302" />
+        </g>
+        <g className="hero-map-rings">
+          <circle cx="128" cy="260" r="58" />
+          <circle cx="128" cy="260" r="42" />
+          <circle cx="1340" cy="274" r="178" />
+          <circle cx="1340" cy="274" r="146" />
+          <circle cx="1340" cy="274" r="112" />
+          <path d="M1340 76v396M1142 274h396" />
+        </g>
+        <g className="hero-map-markers">
+          <path d="m475 214 8 14-8 14-8-14Z" />
+          <path d="m925 314 8 14-8 14-8-14Z" />
+          <path d="m151 174 7 12-7 12-7-12Z" />
+          <circle cx="1180" cy="188" r="4" />
+          <circle cx="620" cy="280" r="3" />
+        </g>
+      </svg>
+
+      <svg
+        className="hero-terrain"
+        preserveAspectRatio="none"
+        viewBox="0 0 1600 360"
+      >
+        <g className="hero-terrain-lines">
+          {Array.from({ length: 15 }, (_, index) => (
+            <path
+              d={`M-80 ${54 + index * 22} C180 ${18 + index * 24}, 315 ${
+                112 + index * 13
+              }, 540 ${68 + index * 19} S880 ${120 + index * 15}, 1080 ${
+                70 + index * 20
+              } S1430 ${30 + index * 23}, 1680 ${82 + index * 18}`}
+              key={index}
+            />
+          ))}
+          {Array.from({ length: 18 }, (_, index) => (
+            <path
+              d={`M${index * 100 - 70} 360 Q${index * 92 + 40} 165 ${
+                index * 88 + 160
+              } 0`}
+              key={`vertical-${index}`}
+            />
+          ))}
+        </g>
+      </svg>
+    </div>
+  );
+}
+
 function Button({
   children,
   href,
@@ -300,8 +376,8 @@ export default function Home() {
     <main id="home" className="overflow-hidden">
       <Header />
 
-      <section className="relative border-b border-white/[0.06] pt-16">
-        <div className="hero-grid absolute inset-0 opacity-70" />
+      <section className="hero-section relative border-b border-white/[0.06] pt-16">
+        <HeroTacticalBackground />
         <div className="absolute left-[15%] top-0 h-[420px] w-[420px] rounded-full bg-blue-600/[0.09] blur-[130px]" />
         <div className="absolute right-[8%] top-20 h-[350px] w-[350px] rounded-full bg-cyan-400/[0.07] blur-[120px]" />
 
@@ -515,35 +591,48 @@ export default function Home() {
           <span className="contact-corner contact-corner-br" />
 
           <div className="relative z-10 flex flex-col gap-10 lg:flex-row lg:items-end lg:justify-between">
-            <div>
+            <div className="max-w-3xl">
               <div className="flex flex-wrap items-center gap-3">
-                <p className="eyebrow">Start A Conversation</p>
+                <p className="eyebrow">Open to the Right Opportunity</p>
                 <span className="contact-availability">
                   <span className="contact-availability-dot" />
-                  Available for the right project
+                  Open to new opportunities
                 </span>
               </div>
               <h2 className="mt-4 max-w-2xl text-4xl font-semibold tracking-[-0.055em] text-white sm:text-5xl">
-                Let&apos;s build something useful.
+                Let&apos;s move ambitious work forward.
               </h2>
-              <p className="mt-4 max-w-xl text-sm leading-6 text-slate-400 sm:text-base">
-                Have an ambitious idea, a messy system, or a useful thing worth
-                building? Let&apos;s turn it into forward motion.
+              <p className="mt-4 max-w-2xl text-sm leading-6 text-slate-400 sm:text-base">
+                I&apos;m looking for the right opportunity to help a strong team
+                solve ambiguous problems, build better systems, and move
+                important initiatives forward. Whether the playbook already
+                exists or still needs to be written.
               </p>
               <div className="mt-7 flex flex-wrap gap-x-6 gap-y-3 text-sm text-slate-400">
-                <a className="link-underline hover:text-cyan-200" href="mailto:hello@colekirkpatrick.com">
-                  hello@colekirkpatrick.com
+                <a
+                  aria-label="Email Cole Kirkpatrick"
+                  className="contact-link link-underline"
+                  href="mailto:colekirky17@gmail.com"
+                >
+                  colekirky17@gmail.com
                 </a>
-                <a className="link-underline hover:text-cyan-200" href="#">
+                <a
+                  aria-label="Cole Kirkpatrick on LinkedIn"
+                  className="contact-link link-underline"
+                  href={
+                    LINKEDIN_URL === "LINKEDIN_URL_HERE"
+                      ? "#contact"
+                      : LINKEDIN_URL
+                  }
+                >
                   LinkedIn
                 </a>
               </div>
             </div>
-            <div className="contact-actions flex flex-col gap-3 sm:flex-row">
-              <Button href="#experience" variant="secondary">
-                View Resume
+            <div className="contact-actions flex">
+              <Button href="mailto:colekirky17@gmail.com?subject=Opportunity%20to%20Connect">
+                Get in Touch
               </Button>
-              <Button href="mailto:hello@colekirkpatrick.com">Let&apos;s Talk</Button>
             </div>
           </div>
         </div>
