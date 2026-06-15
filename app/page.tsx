@@ -257,9 +257,9 @@ function SectionHeading({
 function Header() {
   const navItems = [
     ["Home", "#home"],
+    ["About", "#about"],
     ["Case Studies", "#case-studies"],
     ["Resume", "#experience"],
-    ["About", "#about"],
     ["Contact", "#contact"],
   ];
 
@@ -337,11 +337,35 @@ export default function Home() {
       </section>
 
       <section className="section-shell section-space" id="about">
-        <SectionHeading
-          eyebrow="What I Do"
-          title="From strategy to the work that makes it real."
-          description="I work across functions to bring structure to ambiguity and momentum to ideas that matter."
-        />
+        <div className="mb-9 lg:mb-11">
+          <p className="eyebrow">What I Do</p>
+          <div className="mt-6 max-w-4xl space-y-4 text-base leading-7 text-slate-300 sm:text-lg sm:leading-8">
+            <p>
+              Hey there! I&apos;m Cole. I&apos;ve spent most of my career inside
+              fast-moving startups and unconventional businesses where there
+              usually wasn&apos;t a playbook in place, and I was often trusted
+              to build it.
+            </p>
+            <p>
+              I&apos;m ambitious, curious, and at my best when I&apos;m given
+              ownership, expected to think critically, and trusted to figure
+              things out. I&apos;m comfortable working with imperfect
+              information, developing practical ideas, and staying flexible as
+              the work evolves. Most importantly, I show up, follow through, and
+              take responsibility for getting the job done.
+            </p>
+            <p>
+              I&apos;m excited to find an opportunity where I can put my
+              experience and natural strengths to work building better systems,
+              products, and solutions. If you&apos;re looking for someone
+              reliable, creative, and willing to step up when the work gets
+              difficult, I&apos;d love to talk.
+            </p>
+          </div>
+          <h2 className="mt-10 max-w-3xl text-3xl font-semibold tracking-[-0.04em] text-white sm:text-4xl">
+            From strategy to the work that makes it real.
+          </h2>
+        </div>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {capabilities.map((capability, index) => (
             <article className="capability-card group" key={capability.title}>
