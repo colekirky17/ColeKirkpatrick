@@ -9,16 +9,24 @@ type CaseStudy = {
   description: string;
   tags: string[];
   number: string;
+  status?: string;
+  entryLabel?: string;
+  ctaLabel?: string;
+  emptyMessage?: string;
+  snapshotLabel?: string;
+  outcomeLabel?: string;
+  skillsLabel?: string;
   snapshot?: {
     role?: string;
     timeline?: string;
+    background?: string;
     team?: string;
     scope?: string;
   };
   sections?: {
     label: string;
     title: string;
-    body?: string;
+    body?: string | string[];
     bullets?: string[];
   }[];
   outcomes?: {
@@ -355,6 +363,226 @@ const caseStudies: CaseStudy[] = [
       "Startup Execution",
     ],
   },
+  {
+    title: "Financial Fortress",
+    category: "Financial Education & Coaching",
+    description:
+      "Scaling the systems, team, and delivery behind a fast-growing investor education and coaching business.",
+    tags: [
+      "Program Management",
+      "Revenue Operations",
+      "Coaching Operations",
+    ],
+    number: "05",
+    status: "Completed",
+    snapshot: {
+      role: "Project Manager",
+      team: "Creator leadership · 2 operations team members · 6 coaches · third-party sales partners",
+      scope:
+        "Program management, revenue operations, coaching delivery, community management, and customer experience",
+    },
+    sections: [
+      {
+        label: "Context",
+        title:
+          "Turning an established investor community into a scalable coaching business.",
+        body:
+          "Financial Fortress began as a paid financial education community built around Financial Education Jeremy’s audience. Members received access to investing courses, market insights, and a private Discord community designed to help them become more informed investors. When I joined, the community already had approximately 2,000 members and generated roughly $350,000 in revenue. However, demand for more personalized guidance was growing, and Jeremy could not personally provide one-on-one support at the scale the audience required. The opportunity was to build a coaching business around the existing community—creating a higher-touch service without making delivery dependent on the founder.",
+      },
+      {
+        label: "The Opportunity",
+        title:
+          "Build a higher-value service without relying on the founder to deliver it.",
+        bullets: [
+          "The existing community had a large, engaged audience seeking more personalized investing guidance.",
+          "Members frequently wanted direct access to Jeremy, but his time and availability were limited.",
+          "There were no coaches, coaching packages, delivery systems, onboarding processes, or operating procedures in place.",
+          "The business needed an offer structure that could serve customers at multiple price points.",
+          "Sales, coaching, customer support, and community operations needed to work together as one coordinated system.",
+          "The coaching experience had to remain valuable and credible while avoiding misleading promises or inappropriate investment recommendations.",
+        ],
+      },
+      {
+        label: "My Role",
+        title:
+          "The operator connecting strategy, sales, coaches, customers, and execution.",
+        body:
+          "As Project Manager, I helped turn the coaching concept into a functioning revenue-generating operation. I assisted with strategic planning, but my primary responsibility was implementation: identifying the right systems, building the operating processes, recruiting and managing the team, onboarding customers, and maintaining healthy day-to-day delivery. I became the central connection point between leadership, coaches, customers, the sales team, and marketing. My job was to ensure that what was sold could be delivered effectively, that customers received the support they expected, and that problems were identified and resolved before they disrupted the broader program.",
+      },
+      {
+        label: "What I Did",
+        title:
+          "Built the coaching operation, delivery systems, and customer experience from the ground up.",
+        bullets: [
+          "Evaluated potential software platforms and selected the systems used to manage coaching delivery, scheduling, customer information, and internal operations.",
+          "Helped design an offer ladder that included paid community access, group coaching, and individual coaching packages ranging from approximately $2,500 to $20,000.",
+          "Created customer intake forms, onboarding flows, internal documentation, and coach briefing materials so each coach understood the customer’s goals, experience level, and expectations.",
+          "Helped identify, recruit, onboard, train, schedule, and evaluate six investing coaches.",
+          "Managed two operations team members, including a virtual assistant and a former coach who became my primary operations partner.",
+          "Created SOPs covering customer onboarding, coach onboarding, scheduling, service fulfillment, member support, community moderation, and recurring operational responsibilities.",
+          "Managed the relationship between customers and coaches, including coach assignments, customer concerns, service issues, and coach changes when the original match was not effective.",
+          "Supported early sales calls, customer onboarding, and coaching fulfillment before moving into a broader revenue operations role.",
+          "Connected the sales, coaching, marketing, and operations functions to ensure customer expectations aligned with the service being delivered.",
+          "Identified gaps between third-party sales messaging and the actual coaching experience, then worked with leadership to tighten expectations and reduce misleading promises.",
+          "Created cancellation feedback processes, spoke directly with dissatisfied customers, and used their feedback to improve messaging, onboarding, and program delivery.",
+          "Escalated and helped resolve a coach conduct issue that created potential legal and reputational risk for the business.",
+          "Managed and supported a community of approximately 2,000 investors by publishing weekly investor reports, sharing market context, answering questions, and improving the value members received.",
+          "Reviewed community payment records, identified inactive or unpaid accounts, and helped recover or properly remove members whose subscriptions were no longer current.",
+          "Monitored course engagement and customer feedback to identify opportunities to improve educational content and the overall member experience.",
+          "Ran weekly team meetings and reported operational updates, customer issues, risks, and performance insights to leadership.",
+        ],
+      },
+    ],
+    outcomes: [
+      {
+        value: "$350K → $5M+",
+        label: "Business sales growth over approximately one year",
+      },
+      { value: "~15%", label: "Increase in community member retention" },
+      { value: "0 → 1", label: "Coaching operation built and launched" },
+    ],
+    outcomeTitle:
+      "A scalable coaching operation built around an established investor audience.",
+    outcomeDetails: [
+      "Helped transform Financial Fortress from a paid investor community into a multi-tier education and coaching business.",
+      "Built the systems, documentation, onboarding processes, and operating structure required to support coaching packages ranging from group programs to high-ticket individual mentorship.",
+      "Reduced the coaching operation’s dependence on Jeremy by building and managing a team capable of delivering the service independently.",
+      "Improved alignment between sales promises, customer expectations, and coaching delivery.",
+      "Managed cross-functional execution across leadership, sales, marketing, operations, coaches, and customers.",
+      "Created stronger customer-feedback and cancellation processes that helped the business identify problems and continuously improve the program.",
+      "Helped increase community retention through more consistent support, investor education, market insights, and member engagement.",
+    ],
+    skills: [
+      "Program Management",
+      "Revenue Operations",
+      "Coaching Operations",
+      "Project Management",
+      "Sales",
+      "Community Management",
+      "Customer Experience",
+      "Team Leadership",
+      "Coach Recruitment & Development",
+      "SOP Development",
+      "Operational Systems",
+      "Course Development",
+      "Financial Education",
+      "Risk Management",
+      "Cross-Functional Execution",
+    ],
+  },
+  {
+    title: "Cole Kirkpatrick",
+    category: "My Life Journey",
+    description:
+      "A more personal look at the experiences, values, and interests that shaped how I think, work, and approach what comes next.",
+    tags: ["Ambition", "Adaptability", "Perspective"],
+    number: "06",
+    status: "Active",
+    entryLabel: "Profile",
+    ctaLabel: "View My Story",
+    snapshotLabel: "Personal Snapshot",
+    outcomeLabel: "Principles & Perspective",
+    skillsLabel: "Traits I Bring",
+    snapshot: {
+      role: "Builder / Operator",
+      background: "Atlanta-born · Canadian roots · Finance · Startups",
+      scope:
+        "Entrepreneurship, sports, travel, and the lessons that shaped how I approach life and work",
+    },
+    sections: [
+      {
+        label: "Context",
+        title: "An early instinct to create opportunities.",
+        body: [
+          "I was born in Atlanta to Canadian parents and grew up in Georgia. Around eight years old, I began collecting golf balls from the course behind our house and selling them back to golfers. I still remember my best day: $56.",
+          "It probably was not an empire, but to an eight-year-old, it felt like one.",
+          "That experience taught me something early: value is often hiding in plain sight. You just have to be curious enough to notice it and willing to act on the opportunity.",
+        ],
+      },
+      {
+        label: "The Early Lessons",
+        title: "Learning to spot value before I had a name for it.",
+        bullets: [
+          "I began refereeing soccer as a teenager, which taught me responsibility, communication, and how to make decisions when not everyone agrees with you.",
+          "I bought used phones from classmates and resold them, learning how research and attention to detail could uncover opportunities others missed.",
+          "I searched for poorly listed devices online, including iPhone 4S models mistakenly listed as iPhone 4s, and learned to recognize pricing differences.",
+          "A friend introduced me to the stock market during my senior year of high school, sparking a lasting interest in business, investing, psychology, and calculated risk.",
+          "During college, I helped operate a student organization, launched a digital marketing business serving roofing and HVAC companies, and founded Southeastern Young Entrepreneurs.",
+          "Those early experiences showed me the freedom that can come from creating value, taking calculated risks, and pursuing paths that are not obvious to everyone else.",
+        ],
+      },
+      {
+        label: "My Path",
+        title: "Choosing the unconventional route.",
+        body: [
+          "My interest in investing eventually led me to study finance at the University of West Georgia. After graduation, I explored the traditional financial-advisor path but quickly realized it would not allow me to use my creativity, problem-solving ability, and entrepreneurial instincts to their fullest.",
+          "I had been following Financial Education Jeremy’s content online, so I sent him a cold email.",
+          "There was no introduction, formal application process, or carefully mapped-out career plan. I simply explained who I was, what interested me, and asked whether he needed help.",
+          "He said yes.",
+          "That email became the beginning of my professional career and led me into financial education, coaching operations, fintech products, creator-led businesses, and fast-moving startup environments.",
+          "It reinforced something I had been learning since the golf-ball stand:",
+          "Sometimes the opportunity does not appear until you are willing to create it.",
+        ],
+      },
+      {
+        label: "What Shaped Me",
+        title: "Competition, judgment, teamwork, and adaptability.",
+        body: [
+          "Sports made me deeply competitive. I hate losing, but experience has taught me that failure is often information—something that helps you adjust, prepare differently, or recognize when the current strategy no longer makes sense.",
+          "Playing hockey taught me that talent only gets you so far. As a defenseman, my responsibility was to protect the goalie, cover for teammates, make the right play, and do what gave the entire team the best chance to win.",
+          "Golf taught me to stay level. One great shot does not win the round, and one bad shot does not end it. You have to evaluate the situation, understand the risk, choose the next move carefully, and prevent one mistake from becoming two.",
+          "Fishing taught me patience without stubbornness. Sometimes the next cast works. Other times, you need to move, change the bait, or approach the problem differently.",
+          "Living in Georgia, South Carolina, Tennessee, Nevada, and Florida taught me to embrace change, enter unfamiliar environments, meet new people, and build new experiences.",
+          "Outside of work, I continue to enjoy hockey, golf, hiking, fishing, fitness, traveling, and spending time outdoors.",
+        ],
+      },
+      {
+        label: "What Comes Next",
+        title: "Ready for the next challenge worth committing to.",
+        body: [
+          "My career has never followed a perfectly straight line, and I would not want it to.",
+          "The common thread has always been curiosity, initiative, and a willingness to step into situations where the answer is not obvious. I enjoy finding overlooked opportunities, taking ownership, building useful things, and helping strong teams move forward.",
+          "I am excited about the next chapter—and about finding the people, mission, and challenge worth committing myself to.",
+        ],
+      },
+    ],
+    outcomes: [
+      {
+        value: "Initiative",
+        label: "I believe opportunities are often created, not simply found.",
+      },
+      {
+        value: "Team First",
+        label:
+          "I compete hard, take responsibility, and care about helping the entire team succeed.",
+      },
+      {
+        value: "Adaptability",
+        label:
+          "I stay level, assess what is happening, and adjust when the situation changes.",
+      },
+    ],
+    outcomeTitle: "The traits I carry into every opportunity.",
+    outcomeDetails: [
+      "Built a natural bias toward action by repeatedly pursuing opportunities without waiting for formal permission.",
+      "Developed a competitive but team-oriented mindset shaped by sports, accountability, and learning from failure.",
+      "Became comfortable with change, uncertainty, and entering environments where the answer is not immediately obvious.",
+    ],
+    skills: [
+      "Ambition",
+      "Initiative",
+      "Adaptability",
+      "Curiosity",
+      "Competitive Drive",
+      "Teamwork",
+      "Accountability",
+      "Critical Thinking",
+      "Creativity",
+      "Resilience",
+      "Calculated Risk",
+      "Persistence",
+    ],
+  },
 ];
 
 function ArrowIcon({ className = "size-4" }: { className?: string }) {
@@ -399,6 +627,7 @@ export function CaseStudyModals() {
     ? [
         ["Role", selectedStudy.snapshot.role],
         ["Timeline", selectedStudy.snapshot.timeline],
+        ["Background", selectedStudy.snapshot.background],
         ["Team", selectedStudy.snapshot.team],
         ["Scope", selectedStudy.snapshot.scope],
       ].filter((detail): detail is [string, string] => Boolean(detail[1]))
@@ -481,7 +710,7 @@ export function CaseStudyModals() {
                 ))}
               </span>
               <span className="case-link mt-8">
-                View Case Study
+                {study.ctaLabel ?? "View Case Study"}
                 <ArrowIcon className="size-3.5 transition-transform group-hover:translate-x-1" />
               </span>
             </span>
@@ -529,7 +758,9 @@ export function CaseStudyModals() {
                 <TacticalBackground variant="modal" />
                 <div className="case-modal-intro">
                   <p className="case-modal-kicker">
-                    Case Study // {selectedStudy.number}
+                    {`${selectedStudy.entryLabel ?? "Case Study"} // ${
+                      selectedStudy.number
+                    }`}
                   </p>
                   <p className="case-modal-category">{selectedStudy.category}</p>
                   <h2
@@ -548,12 +779,12 @@ export function CaseStudyModals() {
                       <span>Record</span>
                       <strong>{selectedStudy.number}</strong>
                     </div>
-                    <span>Status // Active</span>
+                    <span>Status // {selectedStudy.status ?? "Active"}</span>
                   </div>
                   {snapshotDetails.length > 0 ? (
                     <div className="case-modal-snapshot">
                       <p className="case-modal-section-label">
-                        Project Snapshot
+                        {selectedStudy.snapshotLabel ?? "Project Snapshot"}
                       </p>
                       {snapshotDetails.map(([label, value]) => (
                         <div className="case-modal-detail" key={label}>
@@ -584,7 +815,13 @@ export function CaseStudyModals() {
                           {section.label}
                         </p>
                         <h3>{section.title}</h3>
-                        {section.body ? <p>{section.body}</p> : null}
+                        {Array.isArray(section.body)
+                          ? section.body.map((paragraph) => (
+                              <p key={paragraph}>{paragraph}</p>
+                            ))
+                          : section.body ? (
+                              <p>{section.body}</p>
+                            ) : null}
                         {section.bullets ? (
                           <ul className="case-modal-list">
                             {section.bullets.map((bullet) => (
@@ -600,7 +837,7 @@ export function CaseStudyModals() {
                     <section className="case-modal-outcomes">
                       <div className="case-modal-outcomes-heading">
                         <p className="case-modal-section-label">
-                          Outcomes & Impact
+                          {selectedStudy.outcomeLabel ?? "Outcomes & Impact"}
                         </p>
                         <h3>{selectedStudy.outcomeTitle}</h3>
                       </div>
@@ -625,7 +862,9 @@ export function CaseStudyModals() {
 
                   {selectedStudy.skills ? (
                     <section className="case-modal-skills">
-                      <p className="case-modal-section-label">Skills Applied</p>
+                      <p className="case-modal-section-label">
+                        {selectedStudy.skillsLabel ?? "Skills Applied"}
+                      </p>
                       <div>
                         {selectedStudy.skills.map((skill) => (
                           <span key={skill}>{skill}</span>
@@ -637,7 +876,8 @@ export function CaseStudyModals() {
                   {!selectedStudy.sections ? (
                     <div className="case-modal-empty">
                       <span className="case-modal-status-dot" />
-                      Case study content awaiting transmission
+                      {selectedStudy.emptyMessage ??
+                        "Case study content awaiting transmission"}
                     </div>
                   ) : null}
                 </div>
